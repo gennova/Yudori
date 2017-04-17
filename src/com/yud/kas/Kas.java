@@ -19,6 +19,8 @@ public class Kas {
     private String jenisKas;
     private int saldo;
     private String kodeakun;
+    private String kasMasuk;
+    private String kasKeluar;
 
     public int getIdKas() {
         return idKas;
@@ -82,6 +84,22 @@ public class Kas {
 
     public void setKodeakun(String kodeakun) {
         this.kodeakun = kodeakun;
+    }
+
+    public String getKasMasuk() {
+        return kasMasuk;
+    }
+
+    public void setKasMasuk(String kasMasuk) {
+        this.kasMasuk = kasMasuk;
+    }
+
+    public String getKasKeluar() {
+        return kasKeluar;
+    }
+
+    public void setKasKeluar(String kasKeluar) {
+        this.kasKeluar = kasKeluar;
     }
 
 }

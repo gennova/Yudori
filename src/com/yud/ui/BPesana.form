@@ -409,9 +409,9 @@
                                                   </Group>
                                               </Group>
                                           </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="txtSisa1" min="-2" pref="113" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="txtSisa1" min="-2" pref="135" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel8" min="-2" pref="72" max="-2" attributes="0"/>
@@ -847,6 +847,7 @@
             </Component>
             <Component class="javax.swing.JTextField" name="txtManualKodePelanggan">
               <Properties>
+                <Property name="editable" type="boolean" value="false"/>
                 <Property name="toolTipText" type="java.lang.String" value="Kode Pelanggan"/>
               </Properties>
             </Component>

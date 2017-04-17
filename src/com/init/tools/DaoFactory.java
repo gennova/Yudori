@@ -435,6 +435,12 @@ public class DaoFactory {
         statement.setString(1, kodekas);
         statement.executeUpdate();
     }
+    public static void insertUrutKASBesar(String kodekas) throws SQLException {
+        PreparedStatement statement = null;
+        statement = connection.prepareStatement("insert into urutkasbesar(nourutkas) values(?)");
+        statement.setString(1, kodekas);
+        statement.executeUpdate();
+    }
 public static String getIDUrutKasOperasional() {
         String kode = "";
         String formatlalu = null;
@@ -478,6 +484,58 @@ public static String getIDUrutKasOperasional() {
                         kode = "KA" + stringdate + nomor;
                     } else {
                         kode = "KA" + stringdate + "0001";
+                    }
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoFactory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return kode;
+    }
+
+public static String getIDUrutKasBesar() {
+        String kode = "";
+        String formatlalu = null;
+        String formatlalutanggal = null;
+        String formatsekarang = null;
+        PreparedStatement prep = null;
+        ResultSet rs = null;
+        PreparedStatement prep2 = null;
+        Calendar c = Calendar.getInstance();
+        Format formatter = new SimpleDateFormat("ddMMyy");
+        String stringdate = formatter.format(c.getTime());
+        try {
+            prep2 = getConnectionFix().prepareStatement(("SELECT nourutkas as kode FROM urutkasbesar ORDER BY idurut DESC LIMIT 1"));
+            rs = prep2.executeQuery();
+            while (rs.next()) {
+                formatlalu = rs.getString("kode");
+            }
+            formatsekarang = "KB" + stringdate;
+            if (formatlalu == null) {
+                formatlalu = "KB" + stringdate + "0001";
+            }
+            formatlalutanggal = formatlalu.substring(0, 8);
+            System.out.println("Lalu " + formatlalu);
+            System.out.println("Lalu Ringkas " + formatlalutanggal);
+            System.out.println("Skrng " + formatsekarang);
+            //JOptionPane.showMessageDialog(null, formatlalu);
+            prep = getConnectionFix().prepareStatement(("SELECT RIGHT(nourutkas,4) AS kode FROM urutkasbesar ORDER BY idurut DESC LIMIT 1"));
+            rs = prep.executeQuery();
+            while (rs.next()) {
+                if (rs.first() == false) {
+                    kode = "KB" + stringdate + "0001";
+                } else {
+                    rs.last();
+                    if (formatlalutanggal.equalsIgnoreCase(formatsekarang)) {
+                        int autoid = rs.getInt(1) + 1;
+                        String nomor = String.valueOf(autoid);
+                        int nolong = nomor.length();
+                        for (int i = 0; i < 4 - nolong; i++) {
+                            nomor = "0" + nomor;
+                        }
+                        kode = "KB" + stringdate + nomor;
+                    } else {
+                        kode = "KB" + stringdate + "0001";
                     }
                 }
             }

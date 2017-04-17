@@ -5,6 +5,7 @@
  */
 package com.yud.ui;
 
+import com.init.tools.AutoCompletion;
 import com.init.tools.DaoFactory;
 import com.init.tools.PrintReport;
 import com.yud.barang.Barang;
@@ -59,6 +60,7 @@ public class BPesana extends javax.swing.JFrame {
         showordertemp();
         DaoFactory.getOrderTempDao().truncateordertemp();
         loadpelanggan();
+        AutoCompletion.enable(txtnama);
         jDesktopPane1.setVisible(true);
         jDesktopPane2.setVisible(false);
     }
@@ -470,9 +472,9 @@ public class BPesana extends javax.swing.JFrame {
                                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                                 .addComponent(txtUM, javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(txtSisa, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtSisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtSisa1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(4, 4, 4))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -588,6 +590,7 @@ public class BPesana extends javax.swing.JFrame {
             }
         });
 
+        txtManualKodePelanggan.setEditable(false);
         txtManualKodePelanggan.setToolTipText("Kode Pelanggan");
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -1037,6 +1040,7 @@ public class BPesana extends javax.swing.JFrame {
         txtisicekboxlainnya.setText("");
         txtAngsuran.setText("");
         txtSisa1.setText("");
+        txtkodemanualbp.setText("");
     }
     private void txtisicekboxlainnyaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtisicekboxlainnyaKeyTyped
         // TODO add your handling code here:
@@ -1225,7 +1229,7 @@ public class BPesana extends javax.swing.JFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         // TODO add your handling code here:
-        String password = "yudori2017";
+        String password = "Yudori2017";
         String opsi = JOptionPane.showInputDialog(null, "Masukkan Password Admin Untuk Update Data");
         if (opsi.equals(password)) {
             String kodebp = txtkodebp.getText();
@@ -1278,6 +1282,7 @@ public class BPesana extends javax.swing.JFrame {
                 bp.setUM(Integer.parseInt(txtUM.getText())); //15
                 bp.setSisa(Integer.parseInt(txtSisa.getText())); //16
                 bp.setHargaTunai(Integer.parseInt(txtSisa1.getText())); //17
+                bp.setStatusKirimBarang("belum"); // 18
                 DaoFactory.getBuktiPesananDao().UpdateBuktiPesanan(bp);
                 DaoFactory.getOrderTempDao().truncateordertemp();
                 new PrintReport("./report/BPesanan.jasper", "kodeBPParams", bp.getKodePesanan());
@@ -1313,30 +1318,36 @@ public class BPesana extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        DaoFactory.getOrderTempDao().truncateordertemp();
+        loadform();
+        txttotal.setText("");
+        txtUM.setText("");
+        txtSisa.setText("");
+        cleardetailfield();
+        cleardetailfieldall();
+        setCalenar();
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtnamaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnamaActionPerformed
         // TODO add your handling code here:
-        if (txtnama.getItemCount()>1) {
+        if (txtnama.getItemCount() > 1) {
             String teks = txtnama.getSelectedItem().toString();
-        if (teks != "") {
-            Pelanggan p = DaoFactory.getPelangganDao().getPelangganByName(teks);
-            txtalamat.setText(p.getAlamatpelanggan());
-            txttelepon.setText(p.getTelepon());
+            if (teks != "") {
+                Pelanggan p = DaoFactory.getPelangganDao().getPelangganByName(teks);
+                txtalamat.setText(p.getAlamatpelanggan());
+                txttelepon.setText(p.getTelepon());
+                txtManualKodePelanggan.setText(p.getKodemanualpelanggan());
+            }
         }
-        }
-        
+
 
     }//GEN-LAST:event_txtnamaActionPerformed
 
     private void txtnamaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnamaKeyPressed
         // TODO add your handling code here:
-        String teks = txtnama.getSelectedItem().toString();
-            System.out.println("s");
-            Pelanggan p = DaoFactory.getPelangganDao().getPelangganByName(teks);
-            txtalamat.setText(p.getAlamatpelanggan());
-            txttelepon.setText(p.getTelepon());
+
+        
     }//GEN-LAST:event_txtnamaKeyPressed
 
     private void txtnamaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnamaKeyReleased

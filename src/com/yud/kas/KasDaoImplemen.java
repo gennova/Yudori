@@ -23,7 +23,7 @@ public class KasDaoImplemen implements KasDao {
 
     private Connection connection;
     private static final String sqlInsertKas = "call spInsertKas(?,?)";
-    private static final String sqlInsertKasTemp = "call spInsertKasTemp(?,?,?,?,?,?,?)";
+    private static final String sqlInsertKasTemp = "call spInsertKasTemp(?,?,?,?,?,?,?,?,?)";
     private static final String sqlGetAllKas = "select * from kas";
     private static final String sqlGetAllKasDetailTemp = "select * from kasdetail_temp";
     private static final String sqlInsertDetailToTemp = "insert into kasdetail_temp select * from kasdetail where kodekas=?";
@@ -108,6 +108,8 @@ public class KasDaoImplemen implements KasDao {
             statement.setString(5, kas.getJenisKas());
             statement.setString(6, kas.getUraian());
             statement.setString(7, kas.getKodeakun());
+            statement.setString(8, kas.getKasMasuk());
+            statement.setString(9, kas.getKasKeluar());
             statement.executeUpdate();
             //JOptionPane.showMessageDialog(null, "Data Kas Operasional Berhasil Disimpan");
         } catch (SQLException ex) {

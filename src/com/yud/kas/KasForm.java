@@ -550,18 +550,23 @@ public class KasForm extends javax.swing.JFrame {
         int totaldetil = Integer.parseInt(txtTotal.getText()); //4
         String jeniskas = txtJenisKas.getSelectedItem().toString(); //5
         String uraian = txtUraian.getText(); //6
-        String kodeakun = ""; //7
-        if (jeniskas.equalsIgnoreCase("Masuk")) {
-            kodeakun = "100101";
-        } else {
-            kodeakun = "100102";
-        }
+        String kodeakun = "1112"; //7
+
         Kas k = new Kas();
         k.setKodeKas(kodefaktur);
         k.setKodeManKas(kodemanual);
         k.setTanggal(tanggal);
         k.setSaldo(totaldetil);
         k.setJenisKas(jeniskas);
+        //ini untuk filtering nilai saldo masuk atau keluar, untuk kas
+        if (jeniskas.equalsIgnoreCase("Masuk")) {
+            k.setKasMasuk(String.valueOf(totaldetil));
+
+        } else {
+            k.setKasKeluar(String.valueOf(totaldetil));
+
+        }
+        //end of filtering
         k.setUraian(uraian);
         k.setKodeakun(kodeakun);
         DaoFactory.getKasDao().insertKasTemp(k);
@@ -600,7 +605,7 @@ public class KasForm extends javax.swing.JFrame {
         jDesktopPane2.setVisible(false);
         jDesktopPane1.setVisible(true);
         DaoFactory.getKasDao().truncateKasTemp();
-        loadform();        
+        loadform();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -610,10 +615,10 @@ public class KasForm extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         int row = tabelKasAll.getSelectedRow();
-        String kode="";
-        if (row>=0) {
+        String kode = "";
+        if (row >= 0) {
             kode = (String) tabelKasAll.getValueAt(row, 1);
-        }        
+        }
         jDesktopPane1.setVisible(false);
         jDesktopPane2.setVisible(false);
         jDesktopPane3.setVisible(true);
@@ -628,7 +633,7 @@ public class KasForm extends javax.swing.JFrame {
         jDesktopPane2.setVisible(false);
         jDesktopPane1.setVisible(true);
         DaoFactory.getKasDao().truncateKasTemp();
-        loadform();     
+        loadform();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

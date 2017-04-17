@@ -31,6 +31,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Settings"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem22ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem23">
               <Properties>
@@ -117,6 +120,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Jenis BP"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem37ActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem38">
               <Properties>
@@ -266,12 +272,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem19ActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem20">
+            <MenuItem class="javax.swing.JMenuItem" name="menuKasBesar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Kas Besar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem20ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuKasBesarActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -432,6 +438,18 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Kas Besar"/>
                   </Properties>
+                  <SubComponents>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem20">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Harian"/>
+                      </Properties>
+                    </MenuItem>
+                    <MenuItem class="javax.swing.JMenuItem" name="jMenuItem41">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="Bulanan"/>
+                      </Properties>
+                    </MenuItem>
+                  </SubComponents>
                 </Menu>
               </SubComponents>
             </Menu>
@@ -442,7 +460,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Yudori JAYA MANDIRI"/>
+    <Property name="title" type="java.lang.String" value="Ganti Jenis Pesanan"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="jMenuBar1"/>
@@ -478,6 +496,9 @@
   </Layout>
   <SubComponents>
     <Container class="Code.Name.Flamboyan.SwingMakeOver.PanelBackgroundYudori" name="panelBackgroundYudori1">
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="panelBackgroundYudori1KeyPressed"/>
+      </Events>
 
       <Layout>
         <DimensionLayout dim="0">

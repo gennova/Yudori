@@ -173,6 +173,7 @@ public class PelangganDaoImplemen implements PelangganDao {
                 pelanggans = new Pelanggan();
                 pelanggans.setIdPelanggan(rs.getInt("idpelanggan"));
                 pelanggans.setKodemanualpelanggan(rs.getString("mankodepelanggan"));
+                System.out.println("pelanggasnssss "+rs.getString("mankodepelanggan"));
                 pelanggans.setNamaPelanggan(rs.getString("namapelanggan"));
                 pelanggans.setAlamatpelanggan(rs.getString("alamat"));
                 pelanggans.setTelepon(rs.getString("telepon"));
