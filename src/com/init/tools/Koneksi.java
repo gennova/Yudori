@@ -24,7 +24,7 @@ public class Koneksi {
     public Koneksi() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-//            System.out.println("Driver ditemukan");
+            //            System.out.println("Driver ditemukan");
             // TODO code application logic here
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Koneksi.class.getName()).log(Level.SEVERE, null, ex);
@@ -43,7 +43,7 @@ public class Koneksi {
                 String passwordnya = properties.getProperty("password");
                 user = username;
                 password = passwordnya;
-                url = "jdbc:mysql://"+host+":3306/"+db+"";
+                url = "jdbc:mysql://" + host + ":3306/" + db + "";
             } catch (FileNotFoundException e) {
             } catch (IOException e) {
             }
@@ -102,8 +102,8 @@ public class Koneksi {
     public void executeData(String sql) throws SQLException {
         st.execute(sql);
     }
-    
-    public String getStatuc() throws SQLException{
+
+    public String getStatuc() throws SQLException {
         return koneksi.getWarnings().toString();
     }
 }

@@ -214,6 +214,9 @@ public class DaoFactory {
             if (formatlalu == null) {
                 formatlalu = "BP" + stringdate + "0001";
             }
+            if ("".equals(formatlalu)) {
+                formatlalu= "BP"+stringdate+"0001";
+            }
             formatlalutanggal = formatlalu.substring(0, 8);
             System.out.println("Lalu " + formatlalu);
             System.out.println("Lalu Ringkas " + formatlalutanggal);
@@ -317,7 +320,7 @@ public class DaoFactory {
             formatsekarang = "KM" + stringdate;
             if (formatlalu == null) {
                 formatlalu = "KM" + stringdate + "0001";
-            }
+            }            
             formatlalutanggal = formatlalu.substring(0, 8);
             System.out.println("Lalu " + formatlalu);
             System.out.println("Lalu Ringkas " + formatlalutanggal);

@@ -53,7 +53,8 @@ public class test {
             fileWriter.close(); 
         
 */
-        KoneksiKu kk = new KoneksiKu();
+        //KoneksiKu kk = new KoneksiKu();
+        Koneksi kk = new Koneksi();
         kk.bukaKoneksi();
         Connection c = kk.getKoneksi();
         System.out.println(c.getCatalog());
