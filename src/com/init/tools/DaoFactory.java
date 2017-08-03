@@ -195,7 +195,7 @@ public class DaoFactory {
 
     public static String getIDUrutPesanan() {
         String kode = "";
-        String formatlalu = null;
+        String formatlalu = "";
         String formatlalutanggal = null;
         String formatsekarang = null;
         PreparedStatement prep = null;
@@ -211,12 +211,10 @@ public class DaoFactory {
                 formatlalu = rs.getString("kode");
             }
             formatsekarang = "BP" + stringdate;
-            if (formatlalu == null) {
-                formatlalu = "BP" + stringdate + "0001";
-            }
             if ("".equals(formatlalu)) {
-                formatlalu= "BP"+stringdate+"0001";
-            }
+                formatlalu = "BP" + stringdate + "0001";
+                kode = formatlalu;
+            }            
             formatlalutanggal = formatlalu.substring(0, 8);
             System.out.println("Lalu " + formatlalu);
             System.out.println("Lalu Ringkas " + formatlalutanggal);
@@ -250,7 +248,7 @@ public class DaoFactory {
 
     public static String getIDUrutAngsuran() {
         String kode = "";
-        String formatlalu = null;
+        String formatlalu = "";
         String formatlalutanggal = null;
         String formatsekarang = null;
         PreparedStatement prep = null;
@@ -266,8 +264,9 @@ public class DaoFactory {
                 formatlalu = rs.getString("kode");
             }
             formatsekarang = "KA" + stringdate;
-            if (formatlalu == null) {
+            if ("".equals(formatlalu)) {
                 formatlalu = "KA" + stringdate + "0001";
+                kode = formatlalu;
             }
             formatlalutanggal = formatlalu.substring(0, 8);
             System.out.println("Lalu " + formatlalu);
@@ -302,7 +301,7 @@ public class DaoFactory {
 
     public static String getIDUrutBKM() {
         String kode = "";
-        String formatlalu = null;
+        String formatlalu = "";
         String formatlalutanggal = null;
         String formatsekarang = null;
         PreparedStatement prep = null;
@@ -318,8 +317,9 @@ public class DaoFactory {
                 formatlalu = rs.getString("kode");
             }
             formatsekarang = "KM" + stringdate;
-            if (formatlalu == null) {
+            if ("".equals(formatlalu)) {
                 formatlalu = "KM" + stringdate + "0001";
+                kode = formatlalu;
             }            
             formatlalutanggal = formatlalu.substring(0, 8);
             System.out.println("Lalu " + formatlalu);
@@ -354,7 +354,7 @@ public class DaoFactory {
 
     public static String getIDUrutBSTU() {
         String kode = "";
-        String formatlalu = null;
+        String formatlalu = "";
         String formatlalutanggal = null;
         String formatsekarang = null;
         PreparedStatement prep = null;
@@ -370,8 +370,9 @@ public class DaoFactory {
                 formatlalu = rs.getString("kode");
             }
             formatsekarang = "TU" + stringdate;
-            if (formatlalu == null) {
+            if ("".equals(formatlalu)) {
                 formatlalu = "TU" + stringdate + "0001";
+                kode = formatlalu;
             }
             formatlalutanggal = formatlalu.substring(0, 8);
             System.out.println("Lalu " + formatlalu);
@@ -446,7 +447,7 @@ public class DaoFactory {
     }
 public static String getIDUrutKasOperasional() {
         String kode = "";
-        String formatlalu = null;
+        String formatlalu = "";
         String formatlalutanggal = null;
         String formatsekarang = null;
         PreparedStatement prep = null;
@@ -462,8 +463,9 @@ public static String getIDUrutKasOperasional() {
                 formatlalu = rs.getString("kode");
             }
             formatsekarang = "KA" + stringdate;
-            if (formatlalu == null) {
+            if ("".equals(formatlalu)) {
                 formatlalu = "KA" + stringdate + "0001";
+                kode = formatlalu;
             }
             formatlalutanggal = formatlalu.substring(0, 8);
             System.out.println("Lalu " + formatlalu);
@@ -498,7 +500,7 @@ public static String getIDUrutKasOperasional() {
 
 public static String getIDUrutKasBesar() {
         String kode = "";
-        String formatlalu = null;
+        String formatlalu = "";
         String formatlalutanggal = null;
         String formatsekarang = null;
         PreparedStatement prep = null;
@@ -514,8 +516,9 @@ public static String getIDUrutKasBesar() {
                 formatlalu = rs.getString("kode");
             }
             formatsekarang = "KB" + stringdate;
-            if (formatlalu == null) {
+            if ("".equals(formatlalu)) {
                 formatlalu = "KB" + stringdate + "0001";
+                kode = formatlalu;
             }
             formatlalutanggal = formatlalu.substring(0, 8);
             System.out.println("Lalu " + formatlalu);

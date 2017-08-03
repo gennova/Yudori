@@ -176,7 +176,7 @@ public class KomisiSalesUI extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -216,7 +216,7 @@ public class KomisiSalesUI extends javax.swing.JFrame {
                 .addGap(40, 40, 40))
         );
 
-        jDesktopPane1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 510, 210));
+        jDesktopPane1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, -1, 210));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Bukti Pesanan"));
 
@@ -250,7 +250,7 @@ public class KomisiSalesUI extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1048, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1100, Short.MAX_VALUE)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addComponent(jLabel17)
                 .addGap(18, 18, 18)
@@ -263,11 +263,11 @@ public class KomisiSalesUI extends javax.swing.JFrame {
                     .addComponent(jLabel17)
                     .addComponent(txtFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 27, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 311, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jDesktopPane1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 1060, 370));
+        jDesktopPane1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 1110, 370));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Komisi Sales"));
 
@@ -275,25 +275,29 @@ public class KomisiSalesUI extends javax.swing.JFrame {
 
         jLabel4.setText("%  = Rp.");
 
-        txtrpkombp.setEditable(false);
+        txtrpkombp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtrpkombpActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Komisi A1");
 
         jLabel6.setText("%  = Rp.");
 
-        txtrpkoma1.setEditable(false);
+        txtrpkoma1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtrpkoma1ActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Komisi Kartu Lunas");
 
         jLabel8.setText("%  = Rp.");
 
-        txtrpkomlunas.setEditable(false);
-
         jLabel9.setText("Komisi Tunai");
 
         jLabel10.setText("%  = Rp.");
-
-        txtrpkomtunai.setEditable(false);
 
         jLabel12.setText("Total Komisi");
 
@@ -322,8 +326,8 @@ public class KomisiSalesUI extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel3)
-                        .addGap(33, 33, 33)
-                        .addComponent(txtkombp, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtkombp, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -364,8 +368,13 @@ public class KomisiSalesUI extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtkoma1, txtkombp, txtkomlunas, txtkomtunai});
+
+        jPanel3Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jButton5, jButton9});
+
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -399,10 +408,10 @@ public class KomisiSalesUI extends javax.swing.JFrame {
                     .addComponent(txttotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13)
                     .addComponent(jLabel12))
-                .addGap(0, 53, Short.MAX_VALUE))
+                .addGap(0, 51, Short.MAX_VALUE))
         );
 
-        jDesktopPane1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 550, 210));
+        jDesktopPane1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 50, 600, 210));
 
         jPanel1.setBackground(new java.awt.Color(255, 102, 51));
 
@@ -417,7 +426,7 @@ public class KomisiSalesUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(324, 324, 324)
                 .addComponent(jLabel1)
-                .addContainerGap(355, Short.MAX_VALUE))
+                .addContainerGap(366, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -426,7 +435,7 @@ public class KomisiSalesUI extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jDesktopPane1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1060, 60));
+        jDesktopPane1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 60));
 
         jDesktopPane2.setBackground(new java.awt.Color(204, 204, 204));
         jDesktopPane2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -835,6 +844,30 @@ public class KomisiSalesUI extends javax.swing.JFrame {
             sorter2.setRowFilter(RowFilter.regexFilter(text));
         }
     }//GEN-LAST:event_txtFilterKeyReleased
+
+    private void txtrpkombpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrpkombpActionPerformed
+        // TODO add your handling code here:
+        int row = TabelBuktiPesanan.getSelectedRow();
+        if (row>=0) {
+            String nilai_total_order = TabelBuktiPesanan.getValueAt(row, 8).toString();
+            double nto = Double.parseDouble(nilai_total_order);
+            double rupiah_komisi_bp = Double.parseDouble(txtrpkombp.getText());
+            double persentase = (rupiah_komisi_bp/nto) * 100;
+            txtkombp.setText(String.valueOf(persentase));
+        }
+    }//GEN-LAST:event_txtrpkombpActionPerformed
+
+    private void txtrpkoma1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrpkoma1ActionPerformed
+        // TODO add your handling code here:
+        int row = TabelBuktiPesanan.getSelectedRow();
+        if (row>=0) {
+            String nilai_total_order = TabelBuktiPesanan.getValueAt(0, 8).toString();
+            double nto = Double.parseDouble(nilai_total_order);
+            double rupiah_komisi_A1 = Double.parseDouble(txtrpkoma1.getText());
+            double persentase = (rupiah_komisi_A1/nto)*100;
+            txtkoma1.setText(String.valueOf(persentase));
+        }
+    }//GEN-LAST:event_txtrpkoma1ActionPerformed
 
     /**
      * @param args the command line arguments
