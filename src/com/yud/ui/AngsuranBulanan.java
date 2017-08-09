@@ -11,9 +11,12 @@ import com.yud.angsuran.Angsuran;
 import com.yud.angsuran.AngsuranBulananTabelModel;
 import com.yud.stb.BuktiPesanan;
 import com.yud.stb.BuktiPesananTabelModel;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.RowSorter;
@@ -745,6 +748,18 @@ public class AngsuranBulanan extends javax.swing.JFrame {
         }
         JOptionPane.showMessageDialog(null, "Angsuran Bulanan Berhasil Disimpan");
         new PrintReport("./report/ans bulanan.jasper", "nobp", kodebp);
+        String kode = txtkodebp.getText();
+        if (kode != "") {
+            showAngsuranBP(kode);
+            BuktiPesanan bp = DaoFactory.getBuktiPesananDao().getBuktiPesananByKodeBP(kode);
+            txtsisaberjalanlab.setText(String.valueOf(bp.getSisa2()));
+            txtmakslab.setText(String.valueOf(bp.getSisa()));
+            txttotalbplab.setText(String.valueOf(bp.getTotal()));
+            if (!txtkodebp.getText().equalsIgnoreCase("")) {
+                txttotalangsuranlab.setText(String.valueOf(DaoFactory.getAngsuranDao().getTotalAngsuranByKodeBp(kode)));
+                txtbulannalab.setText(String.valueOf(bp.getAngsuran()));
+            }
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -780,7 +795,7 @@ public class AngsuranBulanan extends javax.swing.JFrame {
                 txttotalangsuranlab.setText(String.valueOf(DaoFactory.getAngsuranDao().getTotalAngsuranByKodeBp(kode)));
                 txtbulannalab.setText(String.valueOf(bp.getAngsuran()));
             }
-        }
+        }        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

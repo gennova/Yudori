@@ -273,6 +273,12 @@ public class KomisiSalesUI extends javax.swing.JFrame {
 
         jLabel3.setText("Komisi Bukti Pesanan");
 
+        txtkombp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtkombpActionPerformed(evt);
+            }
+        });
+
         jLabel4.setText("%  = Rp.");
 
         txtrpkombp.addActionListener(new java.awt.event.ActionListener() {
@@ -282,6 +288,12 @@ public class KomisiSalesUI extends javax.swing.JFrame {
         });
 
         jLabel5.setText("Komisi A1");
+
+        txtkoma1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtkoma1ActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("%  = Rp.");
 
@@ -293,11 +305,35 @@ public class KomisiSalesUI extends javax.swing.JFrame {
 
         jLabel7.setText("Komisi Kartu Lunas");
 
+        txtkomlunas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtkomlunasActionPerformed(evt);
+            }
+        });
+
         jLabel8.setText("%  = Rp.");
+
+        txtrpkomlunas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtrpkomlunasActionPerformed(evt);
+            }
+        });
 
         jLabel9.setText("Komisi Tunai");
 
+        txtkomtunai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtkomtunaiActionPerformed(evt);
+            }
+        });
+
         jLabel10.setText("%  = Rp.");
+
+        txtrpkomtunai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtrpkomtunaiActionPerformed(evt);
+            }
+        });
 
         jLabel12.setText("Total Komisi");
 
@@ -868,6 +904,78 @@ public class KomisiSalesUI extends javax.swing.JFrame {
             txtkoma1.setText(String.valueOf(persentase));
         }
     }//GEN-LAST:event_txtrpkoma1ActionPerformed
+
+    private void txtrpkomlunasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrpkomlunasActionPerformed
+        // TODO add your handling code here:
+        int row = TabelBuktiPesanan.getSelectedRow();
+        if (row>=0) {
+            String nilai_total_order = TabelBuktiPesanan.getValueAt(0, 8).toString();
+            double nto = Double.parseDouble(nilai_total_order);
+            double rupiah_komisi_lunas = Double.parseDouble(txtrpkomlunas.getText());
+            double persentase = (rupiah_komisi_lunas/nto)*100;
+            txtkomlunas.setText(String.valueOf(persentase));
+        }
+    }//GEN-LAST:event_txtrpkomlunasActionPerformed
+
+    private void txtrpkomtunaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrpkomtunaiActionPerformed
+        // TODO add your handling code here:
+        int row = TabelBuktiPesanan.getSelectedRow();
+        if (row>=0) {
+            String nilai_total_order = TabelBuktiPesanan.getValueAt(0, 8).toString();
+            double nto = Double.parseDouble(nilai_total_order);
+            double rupiah_komisi_tunai = Double.parseDouble(txtrpkomtunai.getText());
+            double persentase = (rupiah_komisi_tunai/nto)*100;
+            txtkomtunai.setText(String.valueOf(persentase));
+        }
+    }//GEN-LAST:event_txtrpkomtunaiActionPerformed
+
+    private void txtkombpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtkombpActionPerformed
+        // TODO add your handling code here:
+        int row = TabelBuktiPesanan.getSelectedRow();
+        if (row>=0) {
+            String nilai_total_order = TabelBuktiPesanan.getValueAt(0, 8).toString();
+            double nto = Double.parseDouble(nilai_total_order);
+            double persentase = Double.parseDouble(txtkombp.getText());
+            double rupiah_bp = (persentase/100)*nto;
+            txtrpkombp.setText(String.valueOf(rupiah_bp));
+        }
+    }//GEN-LAST:event_txtkombpActionPerformed
+
+    private void txtkoma1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtkoma1ActionPerformed
+        // TODO add your handling code here:
+        int row = TabelBuktiPesanan.getSelectedRow();
+        if (row>=0) {
+            String nilai_total_order = TabelBuktiPesanan.getValueAt(0, 8).toString();
+            double nto = Double.parseDouble(nilai_total_order);
+            double persentase = Double.parseDouble(txtkoma1.getText());
+            double rupiah_a1 = (persentase/100)*nto;
+            txtrpkoma1.setText(String.valueOf(rupiah_a1));
+        }
+    }//GEN-LAST:event_txtkoma1ActionPerformed
+
+    private void txtkomlunasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtkomlunasActionPerformed
+        // TODO add your handling code here:
+        int row = TabelBuktiPesanan.getSelectedRow();
+        if (row>=0) {
+            String nilai_total_order = TabelBuktiPesanan.getValueAt(0, 8).toString();
+            double nto = Double.parseDouble(nilai_total_order);
+            double persentase = Double.parseDouble(txtkomlunas.getText());
+            double rupiah_lunas = (persentase/100)*nto;
+            txtrpkomlunas.setText(String.valueOf(rupiah_lunas));
+        }
+    }//GEN-LAST:event_txtkomlunasActionPerformed
+
+    private void txtkomtunaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtkomtunaiActionPerformed
+        // TODO add your handling code here:
+        int row = TabelBuktiPesanan.getSelectedRow();
+        if (row>=0) {
+            String nilai_total_order = TabelBuktiPesanan.getValueAt(0, 8).toString();
+            double nto = Double.parseDouble(nilai_total_order);
+            double persentase = Double.parseDouble(txtkomtunai.getText());
+            double rupiah_tunai = (persentase/100)*nto;
+            txtrpkomtunai.setText(String.valueOf(rupiah_tunai));
+        }
+    }//GEN-LAST:event_txtkomtunaiActionPerformed
 
     /**
      * @param args the command line arguments

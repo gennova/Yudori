@@ -121,9 +121,9 @@ public class BarangDaoImplemen implements BarangDao {
                 g.setHargadrop(rs.getInt("hargadrop")); //5
                 g.setHargaindent(rs.getInt("hargaindent")); //6
                 g.setUM(rs.getInt("UM")); //7
-                g.setHargapromosi(rs.getInt("sisa")); //8
-                g.setSisa1(rs.getInt("hargapromositunai")); //9
-                g.setSisa2(rs.getInt("sisa1")); //10
+                g.setHargapromosi(rs.getInt("hargapromositunai")); //8
+                g.setSisa(rs.getInt("sisa")); //9
+                g.setSisa1(rs.getInt("sisa1")); //10
                 g.setSisa2(rs.getInt("sisa2")); //11
                 g.setTglMulaiBerlaku(rs.getString("tglberlakumulai")); //12
                 g.setTgAkhirBerlaku(rs.getString("tglberlakuakhir")); //13
@@ -152,9 +152,9 @@ public class BarangDaoImplemen implements BarangDao {
                 g.setHargadrop(rs.getInt("hargadrop")); //5
                 g.setHargaindent(rs.getInt("hargaindent")); //6
                 g.setUM(rs.getInt("UM")); //7
-                g.setHargapromosi(rs.getInt("sisa")); //8
-                g.setSisa1(rs.getInt("hargapromositunai")); //9
-                g.setSisa2(rs.getInt("sisa1")); //10
+                g.setHargapromosi(rs.getInt("hargapromositunai")); //8
+                g.setSisa(rs.getInt("sisa")); //9
+                g.setSisa1(rs.getInt("sisa1")); //10
                 g.setSisa2(rs.getInt("sisa2")); //11
                 g.setTglMulaiBerlaku(rs.getString("tglberlakumulai")); //12
                 g.setTgAkhirBerlaku(rs.getString("tglberlakuakhir")); //13
