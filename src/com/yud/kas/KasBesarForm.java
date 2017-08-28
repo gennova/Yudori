@@ -37,7 +37,7 @@ public class KasBesarForm extends javax.swing.JFrame {
     }
 
     private void loadform() {
-        txtNoFaktur.setText(DaoFactory.getIDUrutKasOperasional());
+        txtNoFaktur.setText(DaoFactory.getIDUrutKasBesar());
         showKasAllTemp();
         GregorianCalendar gc = new GregorianCalendar();
         txtTgl.setDate(gc.getTime());
@@ -60,7 +60,7 @@ public class KasBesarForm extends javax.swing.JFrame {
     }
 
     private void showKasAllTemp() {
-        KasTabelModel model = new KasTabelModel(DaoFactory.getKasDao().getALlKasTemp());
+        KasBesarTabelModel model = new KasBesarTabelModel(DaoFactory.getKasBesarDao().getALlKasBesarTemp());
         sorter2 = new TableRowSorter<TableModel>(model);
         tabelKasOper.setRowMargin(0);
         tabelKasOper.setModel(model);
@@ -70,7 +70,7 @@ public class KasBesarForm extends javax.swing.JFrame {
     }
 
     private void showKasAll() {
-        KasTabelModelAll model = new KasTabelModelAll(DaoFactory.getKasDao().getALlKas());
+        KasBesarTabelModelAll model = new KasBesarTabelModelAll(DaoFactory.getKasBesarDao().getALlKasBesar());
         tabelKasAll.setModel(model);
         sorter3 = new TableRowSorter<TableModel>(model);
         tabelKasAll.setRowSorter(sorter3);
@@ -149,7 +149,7 @@ public class KasBesarForm extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1009, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1180, Short.MAX_VALUE)
             .addComponent(txtNoFaktur, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
@@ -162,7 +162,7 @@ public class KasBesarForm extends javax.swing.JFrame {
         );
 
         jDesktopPane1.add(jPanel1);
-        jPanel1.setBounds(0, 0, 1009, 60);
+        jPanel1.setBounds(0, 0, 1180, 60);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Data"));
 
@@ -250,7 +250,7 @@ public class KasBesarForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                .addComponent(txtTotal, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -293,7 +293,7 @@ public class KasBesarForm extends javax.swing.JFrame {
                             .addComponent(jLabel3)))
                     .addComponent(txtTgl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -306,7 +306,7 @@ public class KasBesarForm extends javax.swing.JFrame {
         );
 
         jDesktopPane1.add(jPanel2);
-        jPanel2.setBounds(0, 60, 1009, 390);
+        jPanel2.setBounds(0, 60, 1180, 370);
 
         jDesktopPane2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -334,7 +334,7 @@ public class KasBesarForm extends javax.swing.JFrame {
         );
 
         jDesktopPane2.add(jPanel3);
-        jPanel3.setBounds(0, 0, 1009, 60);
+        jPanel3.setBounds(0, 0, 1180, 60);
 
         tabelKasAll.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -380,16 +380,16 @@ public class KasBesarForm extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 990, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1156, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
                         .addComponent(txtFilter))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -409,7 +409,7 @@ public class KasBesarForm extends javax.swing.JFrame {
         );
 
         jDesktopPane2.add(jPanel4);
-        jPanel4.setBounds(0, 60, 1010, 390);
+        jPanel4.setBounds(0, 60, 1180, 390);
 
         jDesktopPane3.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -424,7 +424,7 @@ public class KasBesarForm extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 1009, Short.MAX_VALUE)
+            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 1170, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,7 +432,7 @@ public class KasBesarForm extends javax.swing.JFrame {
         );
 
         jDesktopPane3.add(jPanel5);
-        jPanel5.setBounds(0, 0, 1009, 60);
+        jPanel5.setBounds(0, 0, 1170, 60);
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Data"));
 
@@ -469,7 +469,7 @@ public class KasBesarForm extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 978, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1160, Short.MAX_VALUE)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -488,36 +488,36 @@ public class KasBesarForm extends javax.swing.JFrame {
         );
 
         jDesktopPane3.add(jPanel6);
-        jPanel6.setBounds(0, 60, 990, 400);
+        jPanel6.setBounds(0, 60, 1170, 400);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1009, Short.MAX_VALUE)
+            .addGap(0, 1180, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jDesktopPane1))
+                .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1180, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jDesktopPane2))
+                .addComponent(jDesktopPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1180, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jDesktopPane3)
+                    .addComponent(jDesktopPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 1156, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 446, Short.MAX_VALUE)
+            .addGap(0, 444, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+                    .addComponent(jDesktopPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 432, Short.MAX_VALUE)
                     .addContainerGap()))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jDesktopPane2))
+                .addComponent(jDesktopPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 444, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(10, 10, 10)
-                    .addComponent(jDesktopPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE)
+                    .addComponent(jDesktopPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 433, Short.MAX_VALUE)
                     .addGap(1, 1, 1)))
         );
 
@@ -528,12 +528,12 @@ public class KasBesarForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         String kodefaktur = txtNoFaktur.getText(); //1
         String kodemanual = txtKodeMan.getText(); //2
-        Kas kas = new Kas();
+        KasBesar kas = new KasBesar();
         kas.setKodeKas(kodefaktur);
         kas.setKodeManKas(kodemanual);
-        DaoFactory.getKasDao().insertKas(kas);
+        DaoFactory.getKasBesarDao().insertKasBesar(kas);
         try {
-            DaoFactory.insertUrutKASOperasional(kodefaktur);
+            DaoFactory.insertUrutKASBesar(kodefaktur);
         } catch (SQLException ex) {
             Logger.getLogger(KasBesarForm.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -553,7 +553,7 @@ public class KasBesarForm extends javax.swing.JFrame {
         String uraian = txtUraian.getText(); //6
         String kodeakun = "1112"; //7
 
-        Kas k = new Kas();
+        KasBesar k = new KasBesar();
         k.setKodeKas(kodefaktur);
         k.setKodeManKas(kodemanual);
         k.setTanggal(tanggal);
@@ -570,15 +570,16 @@ public class KasBesarForm extends javax.swing.JFrame {
         //end of filtering
         k.setUraian(uraian);
         k.setKodeakun(kodeakun);
-        DaoFactory.getKasDao().insertKasTemp(k);
+        DaoFactory.getKasBesarDao().insertKasBesarTemp(k);
         showKasAllTemp();
         clearfileddetil();
     }//GEN-LAST:event_txtUraianActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        DaoFactory.getKasDao().truncateKasTemp();
+        DaoFactory.getKasBesarDao().truncateKasTemp();
         clearfiled();
+        showKasAllTemp();
         loadform();
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -623,8 +624,8 @@ public class KasBesarForm extends javax.swing.JFrame {
         jDesktopPane1.setVisible(false);
         jDesktopPane2.setVisible(false);
         jDesktopPane3.setVisible(true);
-        DaoFactory.getKasDao().insertDetailToTemp(kode);
-        KasTabelModel all = new KasTabelModel(DaoFactory.getKasDao().getALlKasTemp());
+        DaoFactory.getKasBesarDao().insertDetailToTemp(kode);
+        KasBesarTabelModel all = new KasBesarTabelModel(DaoFactory.getKasBesarDao().getALlKasBesarTemp());
         tabelDetailAkhir.setModel(all);
     }//GEN-LAST:event_jButton8ActionPerformed
 

@@ -23,8 +23,10 @@ public class KasDaoImplemen implements KasDao {
 
     private Connection connection;
     private static final String sqlInsertKas = "call spInsertKas(?,?)";
-    private static final String sqlInsertKasTemp = "call spInsertKasTemp(?,?,?,?,?,?,?,?,?)";
+    private static final String sqlInsertKasTemp = "call spInsertKasTemp(?,?,?,?,?,?,?)";
     private static final String sqlGetAllKas = "select * from kas";
+    private static final String sqlGetAllKasDetailByDate = "SELECT *, @k:=IF(jeniskas='Keluar',total,0) AS Kredit,@d:=IF(jeniskas='Masuk',total,0) AS Debet , @s:=@s+@d-@k AS Saldo FROM kasdetail where tanggal=?";
+    private static final String sqlGetAllKasDetailByDateBulanan = "SELECT *, @k:=IF(jeniskas='Keluar',total,0) AS Kredit,@d:=IF(jeniskas='Masuk',total,0) AS Debet , @s:=@s+@d-@k AS Saldo FROM kasdetail where tanggal between ? and ?";
     private static final String sqlGetAllKasDetailTemp = "select * from kasdetail_temp";
     private static final String sqlInsertDetailToTemp = "insert into kasdetail_temp select * from kasdetail where kodekas=?";
 
@@ -34,13 +36,13 @@ public class KasDaoImplemen implements KasDao {
 
     @Override
     public List<Kas> getALlKas() {
-        List<Kas> kases= new ArrayList<>();
-        PreparedStatement statement=null;
-        ResultSet rs=null;
+        List<Kas> kases = new ArrayList<>();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         try {
             statement = connection.prepareCall(sqlGetAllKas);
             rs = statement.executeQuery();
-            while (rs.next()) {                
+            while (rs.next()) {
                 Kas k = new Kas();
                 k.setIdKas(rs.getInt("id")); //1
                 k.setKodeKas(rs.getString("kodekas")); //2
@@ -54,8 +56,71 @@ public class KasDaoImplemen implements KasDao {
         }
         System.out.println(kases.size());
         return kases;
-        
     }
+
+    @Override
+    public List<Kas> getALlKasByDate(String date) {
+        List<Kas> kases = new ArrayList<>();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        try {
+            statement = connection.prepareStatement("select @s:=0");
+            statement.executeQuery();
+            statement = connection.prepareCall(sqlGetAllKasDetailByDate);
+            statement.setString(1, date);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                Kas k = new Kas();
+                k.setIdKas(rs.getInt("id")); //1
+                k.setKodeKas(rs.getString("kodekas")); //2
+                k.setKodeManKas(rs.getString("kodekasmanual")); //3
+                k.setTanggal(rs.getString("tanggal")); //4
+                k.setUraian(rs.getString("uraian")); //5
+                k.setJenisKas(rs.getString("jeniskas")); //6
+                k.setSaldo(rs.getInt("Saldo")); //7   // saldo trx
+                k.setKredit(rs.getInt("Kredit")); // 8
+                k.setDebet(rs.getInt("Debet")); // 8
+                k.setKodeakun(rs.getString("kodeakun")); //8
+                kases.add(k);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KasDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return kases;
+    }
+
+    @Override
+    public List<Kas> getALlKasByDateBulanan(String date, String date_akhir) {
+        List<Kas> kases = new ArrayList<>();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        try {
+            statement = connection.prepareStatement("select @s:=0");
+            statement.executeQuery();
+            statement = connection.prepareCall(sqlGetAllKasDetailByDateBulanan);
+            statement.setString(1, date);
+            statement.setString(2, date_akhir);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                Kas k = new Kas();
+                k.setIdKas(rs.getInt("id")); //1
+                k.setKodeKas(rs.getString("kodekas")); //2
+                k.setKodeManKas(rs.getString("kodekasmanual")); //3
+                k.setTanggal(rs.getString("tanggal")); //4
+                k.setUraian(rs.getString("uraian")); //5
+                k.setJenisKas(rs.getString("jeniskas")); //6
+                k.setSaldo(rs.getInt("Saldo")); //7   // saldo trx
+                k.setKredit(rs.getInt("Kredit")); // 8
+                k.setDebet(rs.getInt("Debet")); // 8
+                k.setKodeakun(rs.getString("kodeakun")); //8
+                kases.add(k);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KasDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return kases;
+    }    
+    
 
     @Override
     public Kas getKasByID(int id) {
@@ -74,7 +139,7 @@ public class KasDaoImplemen implements KasDao {
 
     @Override
     public void insertKas(Kas kas) {
-        PreparedStatement statement=null;
+        PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(sqlInsertKas);
             statement.setString(1, kas.getKodeKas()); //1
@@ -98,7 +163,7 @@ public class KasDaoImplemen implements KasDao {
 
     @Override
     public void insertKasTemp(Kas kas) {
-        PreparedStatement statement=null;
+        PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(sqlInsertKasTemp);
             statement.setString(1, kas.getKodeKas());
@@ -108,8 +173,6 @@ public class KasDaoImplemen implements KasDao {
             statement.setString(5, kas.getJenisKas());
             statement.setString(6, kas.getUraian());
             statement.setString(7, kas.getKodeakun());
-            statement.setString(8, kas.getKasMasuk());
-            statement.setString(9, kas.getKasKeluar());
             statement.executeUpdate();
             //JOptionPane.showMessageDialog(null, "Data Kas Operasional Berhasil Disimpan");
         } catch (SQLException ex) {
@@ -129,13 +192,13 @@ public class KasDaoImplemen implements KasDao {
 
     @Override
     public List<Kas> getALlKasTemp() {
-        List<Kas> kases= new ArrayList<>();
-        PreparedStatement statement=null;
-        ResultSet rs=null;
+        List<Kas> kases = new ArrayList<>();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
         try {
             statement = connection.prepareCall(sqlGetAllKasDetailTemp);
             rs = statement.executeQuery();
-            while (rs.next()) {                
+            while (rs.next()) {
                 Kas k = new Kas();
                 k.setIdKas(rs.getInt("id")); //1
                 k.setKodeKas(rs.getString("kodekas")); //2
@@ -155,7 +218,7 @@ public class KasDaoImplemen implements KasDao {
 
     @Override
     public void insertDetailToTemp(String kode) {
-        PreparedStatement ps=null;
+        PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement(sqlInsertDetailToTemp);
             ps.setString(1, kode);

@@ -17,6 +17,8 @@ public class Kas {
     private String tanggal;
     private String uraian;
     private String jenisKas;
+    private int kredit;
+    private int debet;
     private int saldo;
     private String kodeakun;
     private String kasMasuk;
@@ -100,6 +102,22 @@ public class Kas {
 
     public void setKasKeluar(String kasKeluar) {
         this.kasKeluar = kasKeluar;
+    }
+
+    public int getKredit() {
+        return kredit;
+    }
+
+    public void setKredit(int kredit) {
+        this.kredit = kredit;
+    }
+
+    public int getDebet() {
+        return debet;
+    }
+
+    public void setDebet(int debet) {
+        this.debet = debet;
     }
 
 }

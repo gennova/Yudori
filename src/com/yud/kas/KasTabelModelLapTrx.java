@@ -5,6 +5,7 @@
  */
 package com.yud.kas;
 
+import com.init.tools.DaoFactory;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -13,11 +14,11 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author legollas
  */
-public class KasTabelModel extends AbstractTableModel {
+public class KasTabelModelLapTrx extends AbstractTableModel {
 
     private List<Kas> listeds = new ArrayList<>();
 
-    public KasTabelModel(List<Kas> listeds) {
+    public KasTabelModelLapTrx(List<Kas> listeds) {
         this.listeds = listeds;
     }
 
@@ -28,7 +29,7 @@ public class KasTabelModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 7;
     }
 
     @Override
@@ -43,9 +44,11 @@ public class KasTabelModel extends AbstractTableModel {
             case 3:
                 return listeds.get(rowIndex).getUraian();
             case 4:
-                return listeds.get(rowIndex).getSaldo();
+                return DaoFactory.getFormatRupiahIndonesiaInt(listeds.get(rowIndex).getDebet());
             case 5:
-                return listeds.get(rowIndex).getJenisKas();
+                return DaoFactory.getFormatRupiahIndonesiaInt(listeds.get(rowIndex).getKredit());
+            case 6:
+                return DaoFactory.getFormatRupiahIndonesiaInt(listeds.get(rowIndex).getSaldo());
             default:
                 return null;
 
@@ -64,9 +67,11 @@ public class KasTabelModel extends AbstractTableModel {
             case 3:
                 return "Uraian";
             case 4:
-                return "Saldo";
+                return "Debit";
             case 5:
-                return "Kas";
+                return "Kredit";
+            case 6:
+                return "Saldo";
             default:
                 return null;
         }

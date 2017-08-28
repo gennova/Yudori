@@ -13,11 +13,11 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author legollas
  */
-public class KasTabelModel extends AbstractTableModel {
+public class KasBesarTabelModelAll extends AbstractTableModel {
 
-    private List<Kas> listeds = new ArrayList<>();
+    private List<KasBesar> listeds = new ArrayList<>();
 
-    public KasTabelModel(List<Kas> listeds) {
+    public KasBesarTabelModelAll(List<KasBesar> listeds) {
         this.listeds = listeds;
     }
 
@@ -39,13 +39,11 @@ public class KasTabelModel extends AbstractTableModel {
             case 1:
                 return listeds.get(rowIndex).getKodeKas();
             case 2:
-                return listeds.get(rowIndex).getTanggal();
+                return listeds.get(rowIndex).getKodeManKas();
             case 3:
-                return listeds.get(rowIndex).getUraian();
+                return listeds.get(rowIndex).getTanggal();
             case 4:
                 return listeds.get(rowIndex).getSaldo();
-            case 5:
-                return listeds.get(rowIndex).getJenisKas();
             default:
                 return null;
 
@@ -60,13 +58,11 @@ public class KasTabelModel extends AbstractTableModel {
             case 1:
                 return "Kode";
             case 2:
-                return "Tanggal";
+                return "Referensi";
             case 3:
-                return "Uraian";
+                return "Tanggal";
             case 4:
-                return "Saldo";
-            case 5:
-                return "Kas";
+                return "Total";
             default:
                 return null;
         }

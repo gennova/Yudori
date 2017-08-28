@@ -14,6 +14,14 @@ import java.util.List;
 public interface KasBesarDao {
 
     public List<KasBesar> getALlKasBesar();
+    
+    public List<KasBesar> getALlKasBesarByDate(String date);
+    
+    public List<KasBesar> getALlKasBesarByDateBulanan(String date,String date_akhir);
+    
+    public void rekap_kas_besar_to_temp_harian(String date);
+    
+    public void rekap_kas_besar_to_temp_bulanan(String date, String date_akhir);
 
     public List<KasBesar> getALlKasBesarTemp();
 

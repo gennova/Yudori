@@ -3,7 +3,7 @@
 <properties>
 <comment>host settings</comment>
 <entry key="db">yudori</entry>
-<entry key="password">yudori</entry>
-<entry key="host">192.168.201.118</entry>
-<entry key="username">yudori</entry>
+<entry key="password"></entry>
+<entry key="host">localhost</entry>
+<entry key="username">root</entry>
 </properties>

@@ -7,6 +7,9 @@ package com.yud.ui;
 
 import com.yud.kas.KasBesarForm;
 import com.yud.kas.KasForm;
+import com.yud.ui.laporan.LaporanKasBesarBulananUI;
+import com.yud.ui.laporan.LaporanKasBesarHarianUI;
+import com.yud.ui.laporan.LaporanKasOperasionalHarianUI;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -76,6 +79,7 @@ public class Home extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenuItem19 = new javax.swing.JMenuItem();
         menuKasBesar = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenu4 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
         jMenuItem11 = new javax.swing.JMenuItem();
@@ -101,6 +105,9 @@ public class Home extends javax.swing.JFrame {
         jMenu16 = new javax.swing.JMenu();
         jMenuItem20 = new javax.swing.JMenuItem();
         jMenuItem41 = new javax.swing.JMenuItem();
+        jMenu17 = new javax.swing.JMenu();
+        jMenuItem43 = new javax.swing.JMenuItem();
+        jMenuItem44 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ganti Jenis Pesanan");
@@ -403,6 +410,7 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jMenu5.add(menuKasBesar);
+        jMenu5.add(jSeparator2);
 
         jMenuBar1.add(jMenu5);
 
@@ -515,6 +523,11 @@ public class Home extends javax.swing.JFrame {
         jMenu15.setText("Kas Operasional");
 
         jMenuItem39.setText("Laporan Kas Harian");
+        jMenuItem39.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem39ActionPerformed(evt);
+            }
+        });
         jMenu15.add(jMenuItem39);
 
         jMenuItem40.setText("Laporan Kas Bulanan");
@@ -525,14 +538,34 @@ public class Home extends javax.swing.JFrame {
         jMenu16.setText("Kas Besar");
 
         jMenuItem20.setText("Harian");
+        jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem20ActionPerformed(evt);
+            }
+        });
         jMenu16.add(jMenuItem20);
 
         jMenuItem41.setText("Bulanan");
+        jMenuItem41.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem41ActionPerformed(evt);
+            }
+        });
         jMenu16.add(jMenuItem41);
 
         jMenu14.add(jMenu16);
 
         jMenu4.add(jMenu14);
+
+        jMenu17.setText("BSTU");
+
+        jMenuItem43.setText("Harian");
+        jMenu17.add(jMenuItem43);
+
+        jMenuItem44.setText("Bulanan");
+        jMenu17.add(jMenuItem44);
+
+        jMenu4.add(jMenu17);
 
         jMenuBar1.add(jMenu4);
 
@@ -760,6 +793,24 @@ public class Home extends javax.swing.JFrame {
         bPesanaUpdateJenis.setVisible(true);
     }//GEN-LAST:event_jMenuItem37ActionPerformed
 
+    private void jMenuItem39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem39ActionPerformed
+        // TODO add your handling code here:
+        LaporanKasOperasionalHarianUI lkohui = new LaporanKasOperasionalHarianUI();
+        lkohui.setVisible(true);
+    }//GEN-LAST:event_jMenuItem39ActionPerformed
+
+    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+        // TODO add your handling code here:
+        LaporanKasBesarHarianUI lkbhui = new LaporanKasBesarHarianUI();
+        lkbhui.setVisible(true);
+    }//GEN-LAST:event_jMenuItem20ActionPerformed
+
+    private void jMenuItem41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem41ActionPerformed
+        // TODO add your handling code here:
+        LaporanKasBesarBulananUI lkbbui = new LaporanKasBesarBulananUI();
+        lkbbui.setVisible(true);
+    }//GEN-LAST:event_jMenuItem41ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -815,6 +866,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu15;
     private javax.swing.JMenu jMenu16;
+    private javax.swing.JMenu jMenu17;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -860,6 +912,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem40;
     private javax.swing.JMenuItem jMenuItem41;
+    private javax.swing.JMenuItem jMenuItem43;
+    private javax.swing.JMenuItem jMenuItem44;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
@@ -867,6 +921,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JMenuItem menuKasBesar;
     private Code.Name.Flamboyan.SwingMakeOver.PanelBackgroundYudori panelBackgroundYudori1;
     // End of variables declaration//GEN-END:variables

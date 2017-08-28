@@ -14,6 +14,10 @@ import java.util.List;
 public interface KasDao {
     public List<Kas> getALlKas();
     
+    public List<Kas> getALlKasByDate(String date);
+    
+    public List<Kas> getALlKasByDateBulanan(String date,String date_akhir);
+    
     public List<Kas> getALlKasTemp();
 
     public Kas getKasByID(int id);
