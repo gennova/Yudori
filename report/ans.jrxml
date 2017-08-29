@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ans" language="groovy" pageWidth="576" pageHeight="453" orientation="Landscape" columnWidth="560" leftMargin="8" rightMargin="8" topMargin="8" bottomMargin="8" uuid="80870e37-da79-4b04-87e7-0e9300eced75">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="54"/>
+	<parameter name="nobp" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from buktipesanan join detailpesanan on buktipesanan.idpesanan = detailpesanan.idpesanan join pelanggan on buktipesanan.idpelanggan = pelanggan.idpelanggan join sales on buktipesanan.idsales = sales.idsales where buktipesanan.kodebp = $P{nobp}]]>
+	</queryString>
+	<field name="idpesanan" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kodebp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idpesananfaktur" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="namapelanggan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamatpelanggan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telepon" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idsales" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="komisisales" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenisorder" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tglpesanan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tglpenagihan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tglpengiriman" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UM" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sisa" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="angsuran" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sisaberjalan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idpelanggan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="timestamp" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="statusbp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idorder" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kodebarang" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="namabarang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="unit" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="mankodepelanggan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="namasales" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<title>
+		<band height="437" splitType="Stretch">
+			<textField>
+				<reportElement x="90" y="70" width="190" height="20" uuid="9035ce24-999d-4a09-9ab7-d0ff72768932"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{mankodepelanggan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="72" width="174" height="20" uuid="ed1a2139-9067-4e28-8030-f88169501065"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{mankodepelanggan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="88" width="174" height="20" uuid="1ae265e8-b609-4a05-963a-d552de44e935"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{namapelanggan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="86" width="190" height="20" uuid="cacd301f-607b-4113-9fab-e65da83d2903"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{namapelanggan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="104" width="174" height="20" uuid="6fe20cb9-c83b-4a42-bde5-ed41bcfac2b9"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{alamatpelanggan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="102" width="190" height="20" uuid="812b5d4b-8c21-4ee8-8d38-71fa031b4f99"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{alamatpelanggan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="119" width="174" height="20" uuid="cc04b3cd-b85f-4a1c-a4fc-dc104f63fd1b"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{telepon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="117" width="190" height="20" uuid="eb8cf710-4663-4375-a9cd-f3fcb1b4a44f"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{telepon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="133" width="120" height="20" uuid="a40af2c6-2ce7-43ed-971a-a739a0c612ab"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{namabarang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="135" width="104" height="20" uuid="4d2026d0-cdc5-4537-8be7-ed692d4c697f"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{namabarang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="482" y="135" width="70" height="20" uuid="f68e682f-8f4b-4f7f-a005-6ba81fe7ca3e"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="210" y="133" width="70" height="20" uuid="2ddfcdab-d039-4a2e-b4ff-734b9ffdbd36"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{harga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="151" width="71" height="20" uuid="b2953f16-4623-4f96-b56d-ca11a2440bd3"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jenisorder}=="TUNAI"? " TUNAI":""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="149" width="69" height="20" uuid="23b723ee-fd1f-4e7d-9297-05b5b56d378b"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jenisorder}=="TUNAI"? " TUNAI":""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="167" width="174" height="20" uuid="637fa337-b62d-4445-a4f4-4c34073818a6"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sisa} + " x Rp." + $F{angsuran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="165" width="190" height="20" uuid="d8884ab3-f1f3-4ba1-9483-dbea1a0acfb3"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{sisa} + " x Rp." + $F{angsuran}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="183" width="174" height="20" uuid="4fc6d4bd-4bc6-4dd7-90be-ee7cfc348e2a"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{namasales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="181" width="190" height="20" uuid="b2691576-9dff-4ada-8156-ccfbc9477b3c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{namasales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="378" y="199" width="174" height="20" uuid="010d6bca-c74d-4636-b987-d40cd44897c1"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{UM} + " / "+$F{tglpesanan}+" / "+$F{idpesananfaktur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="90" y="197" width="190" height="20" uuid="7352d232-0f66-483b-9c0e-8e77c3d5feff"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{UM} + " / "+$F{tglpesanan}+" / "+$F{idpesananfaktur}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="241" width="66" height="20" uuid="b1905eac-1aae-4315-b36b-762d6809a689"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tglpesanan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="243" width="66" height="20" uuid="4d86658f-0c63-4548-896a-4fbb86e232e2"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tglpesanan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="362" y="243" width="83" height="20" uuid="50d05fb9-02da-41a6-a9c4-2678db5090da"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="73" y="241" width="83" height="20" uuid="301a026d-6471-44b1-9f4d-b0c45012d324"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="172" y="149" width="79" height="20" uuid="a9181cb5-dacf-4ee2-b898-eae4cc87352d"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jenisorder}=="DROP A1"? " DROP A1":""]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="463" y="151" width="71" height="20" uuid="56c6ce1b-0537-49c4-9522-0a8fa8cf6a64"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jenisorder}=="DROP A1"? " DROP A1":""]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+</jasperReport>

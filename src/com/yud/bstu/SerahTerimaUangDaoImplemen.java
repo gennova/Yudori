@@ -22,6 +22,7 @@ public class SerahTerimaUangDaoImplemen implements SerahTerimaUangDao {
 
     private Connection connection;
     private final static String sqlGetAllBSTU = "select * from bstu";
+    private final static String sqlGetAllBSTUBulananTrx = "SELECT *, @k:=IF(bstu.status='keluar',detailbstu.jumlah,0) AS Kredit,@d:=IF(bstu.status='masuk',detailbstu.jumlah,0) AS Debet , @s:=@s+@d-@k AS Saldo FROM detailbstu JOIN bstu ON detailbstu.kodebstu=bstu.kodebstu where bstu.tanggal between ? and ?";
     private final static String sqlTransferDetailToTemp = "insert into tempbstu(nama,uraian,keterangan,jumlah,kodebstu) select nama,uraian,keterangan,jumlah,kodebstu from detailbstu where kodebstu=?";
     private final static String sqlGetSUmTemp = "SELECT SUM(jumlah) AS jumlahnya FROM tempbstu WHERE kodebstu=? GROUP BY kodebstu";
     private final static String sqlGetAllTempBSTU = "select * from tempbstu";
@@ -232,6 +233,36 @@ public class SerahTerimaUangDaoImplemen implements SerahTerimaUangDao {
         } catch (SQLException ex) {
             Logger.getLogger(SerahTerimaUangDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public List<SerahTerimaUang> getAllBSTUBulananTrx(String date, String date_akhir) {
+        List<SerahTerimaUang> list = new ArrayList<>();
+        PreparedStatement statement = null;
+        ResultSet rs = null;
+        try {
+            statement = connection.prepareStatement(sqlGetAllBSTUBulananTrx);
+            statement.setString(1, date);
+            statement.setString(2, date_akhir);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                SerahTerimaUang serahTerimaUang = new SerahTerimaUang();
+                serahTerimaUang.setId(rs.getInt("id"));
+                serahTerimaUang.setKodeBSTU(rs.getString("kodebstu"));
+                serahTerimaUang.setNama(rs.getString("nama"));
+                serahTerimaUang.setUraian(rs.getString("uraian"));
+                serahTerimaUang.setJumlah(rs.getInt("jumlah"));
+                serahTerimaUang.setKeterangan(rs.getString("keterangan"));
+                serahTerimaUang.setStatus(rs.getString("status"));
+                serahTerimaUang.setJenisbstu(rs.getString("jenisbstu"));
+                serahTerimaUang.setDiserahkan(rs.getString("diserahkan"));
+                serahTerimaUang.setTanggal(rs.getString("tanggal"));
+                list.add(serahTerimaUang);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(SerahTerimaUangDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
 
 }

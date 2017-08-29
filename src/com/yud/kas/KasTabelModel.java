@@ -28,7 +28,7 @@ public class KasTabelModel extends AbstractTableModel {
 
     @Override
     public int getColumnCount() {
-        return 5;
+        return 6;
     }
 
     @Override
@@ -66,7 +66,7 @@ public class KasTabelModel extends AbstractTableModel {
             case 4:
                 return "Saldo";
             case 5:
-                return "Kas";
+                return " Jenis Kas";
             default:
                 return null;
         }

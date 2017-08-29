@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report2" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0ef23a27-a07f-4dff-999b-fa894dc9fa53">
+	<property name="ireport.zoom" value="4.0"/>
+	<property name="ireport.x" value="889"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="Table Dataset 1" uuid="b823070e-9a9b-4374-b89c-eeaea168a468"/>
+	<parameter name="kodebarang" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from barang where idbarang = $P{kodebarang};]]>
+	</queryString>
+	<field name="idbarang" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="namabarang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hargatunai" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hargadrop" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UM" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hargapromositunai" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sisa1" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sisa2" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="transaction" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="time" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="120" y="0" width="329" height="41" uuid="4a8d1cca-dda4-47c6-9459-e10f02d4a3b5"/>
+				<textElement textAlignment="Center">
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Daftar Barang Yudori]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="4" width="522" height="22" uuid="8ed7e461-00f2-46ce-8d4f-61d6d455ab42"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="4" y="5" width="38" height="20" uuid="a3a2826c-aa40-4c23-8346-4046589ab2b9"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Kode]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="58" y="6" width="243" height="20" uuid="8375d2b1-2e00-4c79-b85f-9e4318645c74"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Nama Barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="315" y="6" width="100" height="20" uuid="1e2d3338-a73d-41de-b639-2efc572f15f1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Harga Tunai]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="6" width="100" height="20" uuid="f6b733da-2c45-4eac-9c08-1de0fd1e4d5b"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Drop]]></text>
+			</staticText>
+			<line>
+				<reportElement x="33" y="4" width="1" height="22" uuid="20e455f4-86e7-4f7f-bd26-229543c8a6d6"/>
+			</line>
+			<line>
+				<reportElement x="301" y="4" width="1" height="22" uuid="86752899-7e0c-4581-8e78-f26e5c8fc5af"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="-1" width="522" height="22" uuid="7f8f9e49-3898-4bdb-a699-4d1ac98e16e8"/>
+			</rectangle>
+			<textField>
+				<reportElement x="4" y="0" width="30" height="20" uuid="d625596e-4674-40e3-ac33-5501dea5277d"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{idbarang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="58" y="0" width="243" height="20" uuid="a57753e3-c411-4a27-b40d-5953a0b1ea70"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{namabarang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="0" width="100" height="20" uuid="27b740a0-d073-4549-b4df-ff22374195f4"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{hargatunai}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="0" width="100" height="20" uuid="05ed2270-a2e6-44c6-80d6-b59bcb9c33a5"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{hargadrop}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="33" y="0" width="1" height="20" uuid="6b9b4091-2ada-4526-a231-7677d583ceb7"/>
+			</line>
+			<line>
+				<reportElement x="301" y="-1" width="1" height="21" uuid="821fcbb6-dc02-43e3-9c13-5335fc6b83a3"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="34" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="29" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

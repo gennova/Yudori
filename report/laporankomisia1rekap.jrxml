@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="laporankomisia1rekap" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0cc74d2d-2c01-4c4b-86ca-ea6410f58f36">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="131"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * , SUM(komisisales.komisia1rupiah) AS 'totalkomisia1' FROM komisisales JOIN buktipesanan ON komisisales.kodebp=buktipesanan.kodebp
+join sales on komisisales.idsales=sales.idsales WHERE komisisales.komisia1 IS NOT NULL AND komisisales.statuskomisia1 IS NOT NULL AND  komisisales.komisia1>0.0 AND komisisales.statusbereskomisi='belum' GROUP BY komisisales.idsales]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kodebp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idsales" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idpesanan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totaljual" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="komisibp" class="java.lang.Double">
+		<fieldDescription><![CDATA[1 % bp]]></fieldDescription>
+	</field>
+	<field name="komisia1" class="java.lang.Double">
+		<fieldDescription><![CDATA[5 % tgl 10]]></fieldDescription>
+	</field>
+	<field name="komisilunas" class="java.lang.Double">
+		<fieldDescription><![CDATA[5 % tgl 20]]></fieldDescription>
+	</field>
+	<field name="komisitunai" class="java.lang.Double">
+		<fieldDescription><![CDATA[20 % pelunasan]]></fieldDescription>
+	</field>
+	<field name="komisibprupiah" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="komisia1rupiah" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="komisilunasrupiah" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="komisitunasirupiah" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="statuskomisibp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="statuskomisia1" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="statuskomisilunas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="statuskomisitunasi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="statusbereskomisi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalkomisi" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idpesananfaktur" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="namapelanggan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamatpelanggan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telepon" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="komisisales" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenisorder" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tglpesanan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tglpenagihan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tglpengiriman" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="UM" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sisa" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sisaberjalan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="idpelanggan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="timestamp" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="statusbp" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="angsuran" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="akun" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="namasales" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalkomisia1" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="88" splitType="Stretch">
+			<staticText>
+				<reportElement x="247" y="0" width="376" height="30" uuid="64313f5b-8586-41c9-adda-a0d907cf11c0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN REKAP DAFTAR KOMISI DROP A1 SALES]]></text>
+			</staticText>
+			<image>
+				<reportElement x="1" y="2" width="132" height="57" uuid="4bba4b20-6f3a-4225-94cf-e7575de1a5da"/>
+				<imageExpression><![CDATA["C:\\Users\\legollas\\Desktop\\Capture.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="0" width="33" height="20" uuid="7e7d82d0-2568-4184-bd67-6d7e98a641fc"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="34" y="0" width="111" height="20" uuid="c7565c75-9aa8-428c-bf8f-c050a2345edd"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="145" y="0" width="222" height="20" uuid="b134612e-edde-4e6f-a925-244476450925"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="367" y="0" width="136" height="20" uuid="c8beecc6-9dab-47ab-a51d-54753b36281e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="503" y="0" width="54" height="20" uuid="ee59e524-9d6d-4269-b85c-588ebd2b342e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="557" y="0" width="106" height="20" uuid="3be77365-7c2a-4eb0-bd78-88c48c57af2e"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="663" y="0" width="139" height="20" uuid="19954f45-ff0c-4cae-93cb-b6f2a7000d30"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="1" y="0" width="33" height="20" uuid="bf8ecde0-5c05-41d5-af09-fea176a3a97d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[No.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="34" y="0" width="111" height="20" uuid="459fb122-f9f6-4ba8-8196-9d516c73ef06"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nama Sales]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="145" y="0" width="222" height="20" uuid="cb00fec0-64c7-4f7d-a54e-0a2e0b22c8a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="367" y="0" width="136" height="20" uuid="cef0bb73-a302-48c3-93a9-f3601dfa058b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Total Jual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="503" y="0" width="54" height="20" uuid="1afe8f97-5b3c-4d2a-814d-6d42b241a8c6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Komisi %]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="557" y="0" width="106" height="20" uuid="5e54c446-7598-41a3-875b-dd65ac9e5cb3"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Total Komisi Rupiah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="663" y="0" width="139" height="20" uuid="ce565c81-f24d-4a6f-823c-4d422e84d43c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Posting Komisi]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<rectangle>
+				<reportElement x="1" y="0" width="33" height="20" uuid="bc2c687c-ac31-41ce-89c2-ffeeef332d4d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="34" y="0" width="111" height="20" uuid="b6d949ae-d930-4e02-a223-ab2cd71bf3a2"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="145" y="0" width="222" height="20" uuid="c4d9181f-8064-4fdc-8f05-beb308ca0101"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="367" y="0" width="136" height="20" uuid="2cd8521b-0227-4880-82b4-e0a380d5dee0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="503" y="0" width="54" height="20" uuid="df8b9e20-2b22-4886-a8d2-caabcbe18e9a"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="557" y="0" width="106" height="20" uuid="3b5b3f46-46d3-4f33-89ae-17fa2c7e8267"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="663" y="0" width="139" height="20" uuid="0a81997a-f683-48eb-a655-dbf104d25c8d"/>
+			</rectangle>
+			<textField>
+				<reportElement x="1" y="0" width="33" height="20" uuid="b0cee220-9682-490f-82ad-ac8977fd6407"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{REPORT_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="40" y="0" width="105" height="20" uuid="39377e54-7a33-4e09-86f4-07bc4cdcaba0"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{namasales}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="150" y="0" width="217" height="20" uuid="aeaeb0e2-92f1-41bf-86f4-81f6f1cc27fd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{statuskomisia1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="367" y="0" width="136" height="20" uuid="e0c34fdb-5d27-4d94-b9bf-b755047f438a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="503" y="0" width="54" height="20" uuid="21a8d602-d57c-41e4-9266-2327935f3c84"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{komisia1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="557" y="0" width="106" height="20" uuid="4a288562-4f49-4a1f-ab0e-64f84c42b8ee"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{totalkomisia1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="663" y="0" width="139" height="20" uuid="d38a9438-ec46-436c-8ffc-3a94a6212e05"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{statusbereskomisi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<staticText>
+				<reportElement x="702" y="0" width="100" height="20" uuid="71c063d1-aea5-4f52-b762-f39c5f56ae20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Mengetahui]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

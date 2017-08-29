@@ -6,22 +6,20 @@
 package com.yud.ui.laporan;
 
 import com.init.tools.DaoFactory;
-import com.init.tools.PrintReport;
-import com.yud.kas.KasTabelModelLapTrx;
+import com.yud.kas.KasBesarTabelModelTrx;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
-import java.util.HashMap;
 
 /**
  *
  * @author amnesia
  */
-public class LaporanKasOperasionalBulananUI extends javax.swing.JFrame {
+public class LaporanBSTUBulananUI extends javax.swing.JFrame {
 
     /**
      * Creates new form LaporanKasOperasionalHarianUI
      */
-    public LaporanKasOperasionalBulananUI() {
+    public LaporanBSTUBulananUI() {
         initComponents();
         setLocationRelativeTo(null);
         tgl_date.setDate(GregorianCalendar.getInstance().getTime());
@@ -52,11 +50,11 @@ public class LaporanKasOperasionalBulananUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 51));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 153));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("LAPORAN KAS OPERASIONAL BULANAN");
+        jLabel1.setText("LAPORAN BSTU DETAIL");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -177,13 +175,6 @@ public class LaporanKasOperasionalBulananUI extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        String tgl_awal = sdf.format(tgl_date.getDate());
-        String tgl_akh = sdf.format(this.tgl_akhir.getDate());
-        HashMap hashMap = new HashMap();
-        hashMap.put("tgl_awal", tgl_awal);
-        hashMap.put("tgl_akhir", tgl_akh);
-        new PrintReport("report/kas_operasional.jasper", hashMap);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -196,7 +187,7 @@ public class LaporanKasOperasionalBulananUI extends javax.swing.JFrame {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String tgl = sdf.format(tgl_date.getDate());
         String tgl_akhir = sdf.format(this.tgl_akhir.getDate());
-        KasTabelModelLapTrx kbtm = new KasTabelModelLapTrx(DaoFactory.getKasDao().getALlKasByDateBulanan(tgl, tgl_akhir));
+        KasBesarTabelModelTrx kbtm = new KasBesarTabelModelTrx(DaoFactory.getKasBesarDao().getALlKasBesarByDateBulanan(tgl, tgl_akhir));
         tabel_kas.setModel(kbtm);
         tabel_kas.getColumnModel().getColumn(0).setPreferredWidth(10);
         tabel_kas.getColumnModel().getColumn(3).setPreferredWidth(150);
@@ -220,21 +211,27 @@ public class LaporanKasOperasionalBulananUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LaporanKasOperasionalBulananUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LaporanBSTUBulananUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LaporanKasOperasionalBulananUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LaporanBSTUBulananUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LaporanKasOperasionalBulananUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LaporanBSTUBulananUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LaporanKasOperasionalBulananUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(LaporanBSTUBulananUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new LaporanKasOperasionalBulananUI().setVisible(true);
+                new LaporanBSTUBulananUI().setVisible(true);
             }
         });
     }

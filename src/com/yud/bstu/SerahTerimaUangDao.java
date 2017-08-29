@@ -14,6 +14,8 @@ import java.util.List;
 public interface SerahTerimaUangDao {
 
     public List<SerahTerimaUang> getAllBSTU();
+    
+    public List<SerahTerimaUang> getAllBSTUBulananTrx(String date,String date_akhir);
 
     public SerahTerimaUang getSerahTerimaByID(int id);
 

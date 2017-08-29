@@ -9,6 +9,7 @@ import com.yud.kas.KasBesarForm;
 import com.yud.kas.KasForm;
 import com.yud.ui.laporan.LaporanKasBesarBulananUI;
 import com.yud.ui.laporan.LaporanKasBesarHarianUI;
+import com.yud.ui.laporan.LaporanKasOperasionalBulananUI;
 import com.yud.ui.laporan.LaporanKasOperasionalHarianUI;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -531,6 +532,11 @@ public class Home extends javax.swing.JFrame {
         jMenu15.add(jMenuItem39);
 
         jMenuItem40.setText("Laporan Kas Bulanan");
+        jMenuItem40.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem40ActionPerformed(evt);
+            }
+        });
         jMenu15.add(jMenuItem40);
 
         jMenu14.add(jMenu15);
@@ -810,6 +816,12 @@ public class Home extends javax.swing.JFrame {
         LaporanKasBesarBulananUI lkbbui = new LaporanKasBesarBulananUI();
         lkbbui.setVisible(true);
     }//GEN-LAST:event_jMenuItem41ActionPerformed
+
+    private void jMenuItem40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem40ActionPerformed
+        // TODO add your handling code here:
+        LaporanKasOperasionalBulananUI lkobui = new LaporanKasOperasionalBulananUI();
+        lkobui.setVisible(true);
+    }//GEN-LAST:event_jMenuItem40ActionPerformed
 
     /**
      * @param args the command line arguments

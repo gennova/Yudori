@@ -28,6 +28,9 @@ public class SerahTerimaUang {
     private String jenisbstu;
     private String diserahkan;
     private String tanggal;
+    private int debit;
+    private int kredit;
+    private int saldo;
 
     public int getId() {
         return id;
@@ -126,4 +129,30 @@ public class SerahTerimaUang {
     public void setTanggal(String tanggal) {
         this.tanggal = tanggal;
     }
+
+    public int getDebit() {
+        return debit;
+    }
+
+    public void setDebit(int debit) {
+        this.debit = debit;
+    }
+
+    public int getKredit() {
+        return kredit;
+    }
+
+    public void setKredit(int kredit) {
+        this.kredit = kredit;
+    }
+
+    public int getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(int saldo) {
+        this.saldo = saldo;
+    }
+    
+    
 }
