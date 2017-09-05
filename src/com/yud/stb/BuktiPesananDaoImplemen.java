@@ -27,7 +27,7 @@ public class BuktiPesananDaoImplemen implements BuktiPesananDao {
     private static final String sqlInsertBuktiPesanan = "call spInsertPesanan(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
     private static final String sqlUpdateBuktiPesanan = "call spUpdatePesanan(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
     private static final String sqlTransferDetailBpToTemp = "insert into ordertemp(kodebarang,namabarang,unit,harga,total,idpesanan,kodebp) select kodebarang,namabarang,unit,harga,total,idpesanan,kodebp from detailpesanan where kodebp=?";
-    private static final String sqlGetAllBPesanan = "select * from buktipesanan";
+    private static final String sqlGetAllBPesanan = "select * from buktipesanan where statusbp='belum'";
     private static final String sqlGetAllBPesananbelumkirim = "SELECT detailpesanan.namabarang,detailpesanan.unit,buktipesanan.namapelanggan,buktipesanan.idpesananfaktur,buktipesanan.statuskirim,buktipesanan.kodebp FROM buktipesanan JOIN detailpesanan ON buktipesanan.kodebp=detailpesanan.kodebp WHERE buktipesanan.statuskirim='belum' GROUP BY buktipesanan.kodebp ";
     private static final String sqlGetAllPesananBelumLunas = "select * from buktipesanan where statusbp='belum'";
     private static final String sqlGetAllBPesananLunas = "select * from buktipesanan where statusbp='LUNAS'";
@@ -36,8 +36,8 @@ public class BuktiPesananDaoImplemen implements BuktiPesananDao {
     private static final String sqlGetAllBPesananByDateTunai = "select * from buktipesanan where tglpesanan=? and jenisorder='TUNAI' and statusbp='belum'";
     private static final String sqlGetAllBPesananByDateIndent = "select * from buktipesanan where tglpesanan=? and jenisorder='INDENT' and statusbp='belum'";
     private static final String sqlGetAllBPesananBySales = "select * from buktipesanan where idsales=? and statusbp='belum'";
-    private static final String sqlGetAllBPesananBySalesBelumKomisi = "SELECT * FROM buktipesanan WHERE idsales=? AND kodebp IN (SELECT kodebp FROM komisisales WHERE statusbereskomisi='belum') ";
-    private static final String sqlGetAllBPesananBySalesSudahKomisi = "SELECT * FROM buktipesanan WHERE idsales=? AND kodebp IN (SELECT kodebp FROM komisisales WHERE statusbereskomisi='sudah') ";
+    private static final String sqlGetAllBPesananBySalesBelumKomisi = "SELECT * FROM buktipesanan WHERE idsales=? and statusbp='belum' AND kodebp IN (SELECT kodebp FROM komisisales WHERE statusbereskomisi='belum') ";
+    private static final String sqlGetAllBPesananBySalesSudahKomisi = "SELECT * FROM buktipesanan WHERE idsales=? and statusbp='belum' AND kodebp IN (SELECT kodebp FROM komisisales WHERE statusbereskomisi='sudah') ";
     private static final String sqlGetAllBPesananByDateBulanan = "select * from buktipesanan where tglpesanan between ? and ? and statusbp='belum'";
     private static final String sqlGetBPesananByID = "select * from buktipesanan where idpesanan=? and statusbp='belum'";
     private static final String sqlGetBPesananByKodeBP = "select * from buktipesanan where kodebp=? and statusbp='belum'";

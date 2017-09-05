@@ -26,7 +26,7 @@ public class KasBesarDaoImplemen implements KasBesarDao {
     private final String sqlInsertKasTemp = "call spInsertKasBesarTemp(?,?,?,?,?,?,?)";
     private final String sqlGetAllKas = "select * from kas_besar";
     private final String sqlGetAllKasBesarDetailByDate = "SELECT *, @k:=IF(jeniskas='Keluar',total,0) AS Kredit,@d:=IF(jeniskas='Masuk',total,0) AS Debet , @s:=@s+@d-@k AS Saldo FROM kas_besar_detail_temp where tanggal=?";
-    private final String sqlGetAllKasBesarDetailByDateBulanan = "SELECT *, @k:=IF(jeniskas='Keluar',total,0) AS Kredit,@d:=IF(jeniskas='Masuk',total,0) AS Debet , @s:=@s+@d-@k AS Saldo FROM kas_besar_detail_temp where tanggal between ? and ?";
+    private final String sqlGetAllKasBesarDetailByDateBulanan = "SELECT *, @k:=IF(jeniskas='Keluar',total,0) AS Kredit,@d:=IF(jeniskas='Masuk',total,0) AS Debet , @s:=@s+@d-@k AS Saldo FROM kas_besar_detail_temp where tanggal between ? and ? order by tanggal asc,id asc";
     private final String sqlGetAllKasDetailTemp = "select * from kas_besar_detail_temp";
     private final String sqlInsertDetailToTemp = "insert into kas_besar_detail_temp select * from kas_besar_detail where kodekas=?";
     private final String sqlCetakLaporanKasBesarHarianTemp = "call spCetakLaporanKasBesar(?)";

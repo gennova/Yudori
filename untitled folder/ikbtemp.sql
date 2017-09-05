@@ -1,0 +1,21 @@
+DELIMITER $$
+
+USE `yudori`$$
+
+DROP PROCEDURE IF EXISTS `spInsertKasBesarTemp`$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `spInsertKasBesarTemp`(IN KODEKAS VARCHAR(50),IN KODEKASMANUAL VARCHAR(50),IN TANGGALNYA VARCHAR(50),IN TOTAL INT(10),
+    IN JENISNYA VARCHAR(30),IN URAIAN TEXT,IN KODEAKUNNYA VARCHAR(20))
+BEGIN    
+    DECLARE `_rollback` BOOL DEFAULT 0;
+    DECLARE CONTINUE HANDLER FOR SQLEXCEPTION SET `_rollback` = 1;
+    START TRANSACTION;
+    INSERT INTO kas_besar_detail_temp(`kodekas`,`kodekasmanual`,`tanggal`,`total`,`jeniskas`,`uraian`,`kodeakun`) VALUES (KODEKAS,KODEKASMANUAL,TANGGALNYA,TOTAL,JENISNYA,URAIAN,KODEAKUNNYA);    
+IF `_rollback` THEN
+        ROLLBACK;
+    ELSE
+        COMMIT;
+    END IF;    
+    END$$
+
+DELIMITER ;
