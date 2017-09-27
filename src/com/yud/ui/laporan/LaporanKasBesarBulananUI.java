@@ -26,7 +26,7 @@ public class LaporanKasBesarBulananUI extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         tgl_date.setDate(GregorianCalendar.getInstance().getTime());
-        tgl_akhir.setDate(GregorianCalendar.getInstance().getTime());
+        tgl_akhir_date.setDate(GregorianCalendar.getInstance().getTime());
     }
 
     /**
@@ -49,7 +49,7 @@ public class LaporanKasBesarBulananUI extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        tgl_akhir = new com.toedter.calendar.JDateChooser();
+        tgl_akhir_date = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -127,7 +127,7 @@ public class LaporanKasBesarBulananUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tgl_akhir, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(tgl_akhir_date, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(147, 147, 147))
@@ -150,7 +150,7 @@ public class LaporanKasBesarBulananUI extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
                             .addComponent(jLabel3)))
-                    .addComponent(tgl_akhir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tgl_akhir_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -160,7 +160,7 @@ public class LaporanKasBesarBulananUI extends javax.swing.JFrame {
                 .addGap(0, 10, Short.MAX_VALUE))
         );
 
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jLabel2, tgl_akhir, tgl_date});
+        jPanel1Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jButton1, jLabel2, tgl_akhir_date, tgl_date});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -190,7 +190,7 @@ public class LaporanKasBesarBulananUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         String tgl = sdf.format(tgl_date.getDate());
-        String tgl_akhir = sdf.format(this.tgl_akhir.getDate());
+        String tgl_akhir = sdf.format(tgl_akhir_date.getDate());
         KasBesarTabelModelTrx kbtm = new KasBesarTabelModelTrx(DaoFactory.getKasBesarDao().getALlKasBesarByDateBulanan(tgl, tgl_akhir));
         tabel_kas.setModel(kbtm);
         tabel_kas.getColumnModel().getColumn(0).setPreferredWidth(10);
@@ -247,7 +247,7 @@ public class LaporanKasBesarBulananUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tabel_kas;
-    private com.toedter.calendar.JDateChooser tgl_akhir;
+    private com.toedter.calendar.JDateChooser tgl_akhir_date;
     private com.toedter.calendar.JDateChooser tgl_date;
     // End of variables declaration//GEN-END:variables
 }

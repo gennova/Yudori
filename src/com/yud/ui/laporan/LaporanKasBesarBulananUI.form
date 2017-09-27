@@ -50,7 +50,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Component id="tgl_akhir" min="-2" pref="185" max="-2" attributes="0"/>
+                          <Component id="tgl_akhir_date" min="-2" pref="185" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jButton1" min="-2" pref="96" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
@@ -80,7 +80,7 @@
                               <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="tgl_akhir" linkSize="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="tgl_akhir_date" linkSize="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="398" max="-2" attributes="0"/>
@@ -186,7 +186,7 @@
             <Property name="text" type="java.lang.String" value="Tanggal Akhir"/>
           </Properties>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="tgl_akhir">
+        <Component class="com.toedter.calendar.JDateChooser" name="tgl_akhir_date">
         </Component>
       </SubComponents>
     </Container>
