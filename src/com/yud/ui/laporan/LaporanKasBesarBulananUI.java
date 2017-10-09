@@ -178,7 +178,13 @@ public class LaporanKasBesarBulananUI extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        String tgl_awal = sdf.format(tgl_date.getDate());
+        String tgl_akh = sdf.format(this.tgl_akhir_date.getDate());
+        HashMap hashMap = new HashMap();
+        hashMap.put("tgl_awal", tgl_awal);
+        hashMap.put("tgl_akhir", tgl_akh);
+        new PrintReport("report/kas_besar.jasper", hashMap);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
