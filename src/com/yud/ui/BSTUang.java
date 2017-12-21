@@ -192,6 +192,11 @@ public class BSTUang extends javax.swing.JFrame {
 
         jLabel4.setText("Jumlah (Rp)");
 
+        txtJumlah.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtJumlahActionPerformed(evt);
+            }
+        });
         txtJumlah.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 txtJumlahKeyPressed(evt);
@@ -541,13 +546,14 @@ public class BSTUang extends javax.swing.JFrame {
             String namapenerima = txtNama.getText();
             String namapenyerah = txtDiserahkan.getText();
             String jumlah = txtTotalnya.getText();
+            String uraian = txtUraian.getText();
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             String tglnya = df.format(tglBSTU.getDate());
             String statuscek = "";
             if (cekMasuk.isSelected() == true) {
-                statuscek = "masuk";
+                statuscek = "Masuk";
             } else if (cekKeluar.isSelected() == true) {
-                statuscek = "keluar";
+                statuscek = "Keluar";
             }
             String jeniskeluar = "";
             if (radAngsuran.isSelected() == true) {
@@ -567,6 +573,7 @@ public class BSTUang extends javax.swing.JFrame {
             stu.setStatus(statuscek);
             stu.setJumlah(Integer.parseInt(jumlah));
             stu.setTanggal(tglnya);
+            stu.setUraian(uraian);
             DaoFactory.getSerahTerimaUangDao().insertBSTU(stu);
             DaoFactory.insertUrutBSTU(txtNoFaktur.getText());
             JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
@@ -585,7 +592,22 @@ public class BSTUang extends javax.swing.JFrame {
 
     private void txtJumlahKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJumlahKeyPressed
         // TODO add your handling code here:
-
+        String nama = txtnamadetil.getText();
+        String uraian = txtUraian.getText();
+        String keterangan = txtKeterangan.getText();
+        String jumlah = txtJumlah.getText();
+        String kode = txtNoFaktur.getText();
+        int jumlahnya = Integer.parseInt(jumlah);
+        SerahTerimaUang stu = new SerahTerimaUang();
+        stu.setNama(nama);
+        stu.setUraian(uraian);
+        stu.setKeterangan(keterangan);
+        stu.setJumlah(jumlahnya);
+        stu.setKodeBSTU(kode);
+        clearfielddetil();
+        DaoFactory.getSerahTerimaUangDao().InsertTempBSTU(stu);
+        showBSTUTemp();
+        txtTotalnya.setText(String.valueOf(DaoFactory.getSerahTerimaUangDao().getSUMTemp(kode)));   
     }//GEN-LAST:event_txtJumlahKeyPressed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -650,7 +672,7 @@ public class BSTUang extends javax.swing.JFrame {
 
     private void filterText2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_filterText2MouseClicked
         // TODO add your handling code here:
-
+        
     }//GEN-LAST:event_filterText2MouseClicked
 
     private void filterText2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filterText2KeyReleased
@@ -712,6 +734,10 @@ public class BSTUang extends javax.swing.JFrame {
             new PrintReport("./report/serahterimauang.jasper", "kodefaktur", kode);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txtJumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJumlahActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtJumlahActionPerformed
 
     /**
      * @param args the command line arguments

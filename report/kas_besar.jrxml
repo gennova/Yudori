@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="kas_besar" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="41a36b66-482c-4d8d-8c2e-65c5e8a91263">
-	<property name="ireport.zoom" value="1.5"/>
-	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.zoom" value="2.0"/>
+	<property name="ireport.x" value="166"/>
+	<property name="ireport.y" value="51"/>
 	<parameter name="tgl_awal" class="java.lang.String"/>
 	<parameter name="tgl_akhir" class="java.lang.String"/>
 	<queryString>
@@ -72,13 +72,13 @@
 				<reportElement x="29" y="2" width="56" height="20" uuid="6fba6203-e66d-46cb-bc8c-13c146c945d8"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="85" y="2" width="215" height="20" uuid="4bdf67b6-a903-420c-9448-d785df071b32"/>
+				<reportElement x="85" y="2" width="233" height="20" uuid="4bdf67b6-a903-420c-9448-d785df071b32"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="298" y="2" width="99" height="20" uuid="b5302955-9582-4e64-9817-9fee393ddec7"/>
+				<reportElement x="318" y="2" width="87" height="20" uuid="b5302955-9582-4e64-9817-9fee393ddec7"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="395" y="2" width="85" height="20" uuid="aa70334e-f638-46a2-90cd-c016e9d9e601"/>
+				<reportElement x="405" y="2" width="75" height="20" uuid="aa70334e-f638-46a2-90cd-c016e9d9e601"/>
 			</rectangle>
 			<rectangle>
 				<reportElement x="480" y="2" width="75" height="20" uuid="a2cbd12d-fe09-4fb7-9bfb-589355e83407"/>
@@ -94,17 +94,17 @@
 				<text><![CDATA[Tanggal]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="89" y="2" width="42" height="20" uuid="dc8cf5e0-f4e9-488f-ad2a-14e708575abb"/>
+				<reportElement x="89" y="2" width="60" height="20" uuid="dc8cf5e0-f4e9-488f-ad2a-14e708575abb"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Uraian]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="300" y="2" width="70" height="20" uuid="e9bcbdde-0b90-4a8b-b470-0ec0c753c2d4"/>
+				<reportElement x="320" y="2" width="58" height="20" uuid="e9bcbdde-0b90-4a8b-b470-0ec0c753c2d4"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Debit]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="397" y="2" width="65" height="20" uuid="986da7df-5e0a-43e8-a4c6-ffe6eeb0bcc1"/>
+				<reportElement x="407" y="2" width="72" height="20" uuid="986da7df-5e0a-43e8-a4c6-ffe6eeb0bcc1"/>
 				<textElement verticalAlignment="Middle"/>
 				<text><![CDATA[Kredit]]></text>
 			</staticText>
@@ -124,13 +124,13 @@
 				<reportElement x="29" y="-1" width="56" height="20" uuid="9f729c9f-aee7-4ce2-bdf8-6eaba7601a6e"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="85" y="-1" width="215" height="20" uuid="467a038f-cf1a-4a78-aa16-5b7dfa9402f0"/>
+				<reportElement x="85" y="-1" width="233" height="20" uuid="467a038f-cf1a-4a78-aa16-5b7dfa9402f0"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="298" y="-1" width="99" height="20" uuid="3b31ed64-8fdb-4231-8e68-6b3e76cc8c67"/>
+				<reportElement x="318" y="-1" width="87" height="20" uuid="3b31ed64-8fdb-4231-8e68-6b3e76cc8c67"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="395" y="-1" width="85" height="20" uuid="288590f1-51c8-4557-8f03-b5d0e3cd2030"/>
+				<reportElement x="405" y="-1" width="75" height="20" uuid="288590f1-51c8-4557-8f03-b5d0e3cd2030"/>
 			</rectangle>
 			<rectangle>
 				<reportElement x="480" y="-1" width="75" height="20" uuid="0376ca7b-608b-4a41-9279-169dcec6b674"/>
@@ -150,14 +150,14 @@
 				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="89" y="0" width="211" height="19" uuid="334744ee-1b11-4731-b569-6ebf7275295f"/>
+				<reportElement x="89" y="0" width="229" height="19" uuid="334744ee-1b11-4731-b569-6ebf7275295f"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{uraian}]]></textFieldExpression>
 			</textField>
 			<textField pattern="Rp #,##0">
-				<reportElement x="300" y="0" width="97" height="19" uuid="121e5ac9-745e-4b83-badc-56c7c337e400"/>
+				<reportElement x="320" y="0" width="85" height="19" uuid="121e5ac9-745e-4b83-badc-56c7c337e400"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
@@ -171,7 +171,7 @@
 				<textFieldExpression><![CDATA[$F{Saldo}]]></textFieldExpression>
 			</textField>
 			<textField pattern="Rp #,##0">
-				<reportElement x="397" y="0" width="83" height="19" uuid="9d8a7e37-8c94-4e29-aabc-2469298cd86f"/>
+				<reportElement x="407" y="0" width="73" height="19" uuid="9d8a7e37-8c94-4e29-aabc-2469298cd86f"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9"/>
 				</textElement>
@@ -185,20 +185,20 @@
 				<reportElement x="480" y="-1" width="75" height="20" uuid="71c72471-7edc-4cc8-88a0-25eb3990a583"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="395" y="-1" width="85" height="20" uuid="d7f9d5fb-e644-4b8e-bdd5-d40d726f2f30"/>
+				<reportElement x="405" y="-1" width="75" height="20" uuid="d7f9d5fb-e644-4b8e-bdd5-d40d726f2f30"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="298" y="-1" width="97" height="20" uuid="c49ce379-a945-4304-af51-ade192299d4c"/>
+				<reportElement x="318" y="-1" width="87" height="20" uuid="c49ce379-a945-4304-af51-ade192299d4c"/>
 			</rectangle>
 			<textField pattern="Rp #,##0">
-				<reportElement x="397" y="-2" width="82" height="20" uuid="91293de5-40d3-472a-8b6a-d79e0179a0c8"/>
+				<reportElement x="407" y="-2" width="72" height="20" uuid="91293de5-40d3-472a-8b6a-d79e0179a0c8"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$V{kredit}]]></textFieldExpression>
 			</textField>
 			<textField pattern="Rp #,##0">
-				<reportElement x="300" y="-2" width="95" height="20" uuid="6ed6526c-4db0-4543-a5b8-d28be67dbbb1"/>
+				<reportElement x="320" y="-2" width="85" height="20" uuid="6ed6526c-4db0-4543-a5b8-d28be67dbbb1"/>
 				<textElement verticalAlignment="Middle">
 					<font size="9" isBold="false"/>
 				</textElement>
@@ -212,7 +212,7 @@
 				<textFieldExpression><![CDATA[$V{saldo}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="248" y="0" width="52" height="20" uuid="bbb2a5df-9aa5-45d3-b6c3-0f4f3400ca5d"/>
+				<reportElement x="248" y="0" width="70" height="20" uuid="bbb2a5df-9aa5-45d3-b6c3-0f4f3400ca5d"/>
 				<textElement verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>

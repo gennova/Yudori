@@ -46,7 +46,8 @@ public class AngsuranUI extends javax.swing.JFrame {
         tglterimadate.setDate(new GregorianCalendar().getTime());
         showANS();
     }
-    private void loadform(){
+
+    private void loadform() {
         txtkodefaktur.setText(DaoFactory.getIDUrutAngsuran());
         tglterimadate.setDate(new GregorianCalendar().getTime());
     }
@@ -358,6 +359,11 @@ public class AngsuranUI extends javax.swing.JFrame {
         });
 
         jButton4.setText("Hapus");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Update");
 
@@ -396,7 +402,7 @@ public class AngsuranUI extends javax.swing.JFrame {
                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 93, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6)
@@ -583,7 +589,7 @@ public class AngsuranUI extends javax.swing.JFrame {
                 a.setTanggalTerima(tglterima);
                 a.setKeterangan(keterangan);
                 DaoFactory.getAngsuranDao().insertAngsuran(a);
-                DaoFactory.getAngsuranDao().insertAngsuranBulananUM(a);                
+                DaoFactory.getAngsuranDao().insertAngsuranBulananUM(a);
                 try {
                     DaoFactory.insertUrutAngsuran(kodeangsuran);
                 } catch (SQLException ex) {
@@ -696,7 +702,7 @@ public class AngsuranUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         int opsi = JOptionPane.showConfirmDialog(null, "Yakin akan mencetak kembali ?");
         System.out.println(opsi);
-        if (opsi==0) {
+        if (opsi == 0) {
             new PrintReport("./report/ans.jasper", "nobp", txtkodebp.getText());
         }
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -712,6 +718,19 @@ public class AngsuranUI extends javax.swing.JFrame {
             txtkodebp.requestFocus();
         }
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        String kode = txtkodeangsuran.getText();
+        Angsuran angsuran = DaoFactory.getAngsuranDao().getAngsuranByKodeANS(kode);
+        int opsi = JOptionPane.showConfirmDialog(null, "Anda yakin akan menghapus?", "PERINGATAN", JOptionPane.OK_CANCEL_OPTION);
+        if (opsi == JOptionPane.OK_OPTION) {
+            DaoFactory.getAngsuranDao().deleteAngsuran(angsuran);
+            loadform();
+            clearfield();
+            showANS();
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

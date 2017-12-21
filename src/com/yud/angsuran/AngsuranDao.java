@@ -18,6 +18,8 @@ public interface AngsuranDao {
     public List<Angsuran> getAllAngsuranByKodeBP(String kodebp);
     
     public Angsuran getAngsuranByKodeBP(String kodebp);
+    
+    public Angsuran getAngsuranByKodeANS(String kodeans);
 
     public void insertAngsuran(Angsuran angsuran);
     

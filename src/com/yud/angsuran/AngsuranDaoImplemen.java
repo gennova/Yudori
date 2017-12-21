@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -29,6 +30,7 @@ public class AngsuranDaoImplemen implements AngsuranDao {
     private static final String sqlInsertAngsuran = "INSERT INTO angsuran(kodeangsuran,kodebp,idpelanggan,pembayar,jumlah,penerima,tanggal,keterangan)values (?,?,?,?,?,?,?,?)";
     private static final String sqlInsertAngsuranBulanan = "INSERT INTO bantucetakand(kodebp,kodeans,tanggal,jumlah,lunas) values (?,?,?,?,?)";
     private static final String sqlGetTotalAngsuranByKodeBp = "SELECT SUM(jumlah) AS jumlahnya FROM detailangsuran WHERE nobp=? and nobp IN (SELECT kodebp FROM buktipesanan WHERE statusbp='belum')";
+    private static final String sqlDeleteAngsuranByKodeAns = "call spDeleteAngsuranAwal(?)";
 
     public AngsuranDaoImplemen(Connection connection) {
         this.connection = connection;
@@ -88,7 +90,15 @@ public class AngsuranDaoImplemen implements AngsuranDao {
 
     @Override
     public void deleteAngsuran(Angsuran angsuran) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            PreparedStatement ps;
+            ps = connection.prepareStatement(sqlDeleteAngsuranByKodeAns);
+            ps.setString(1, angsuran.getKodeAngsuran());
+            ps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Angsuran Berhasil dihapus");
+        } catch (SQLException ex) {
+            Logger.getLogger(AngsuranDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -140,6 +150,33 @@ public class AngsuranDaoImplemen implements AngsuranDao {
         }
 
         return angsurans;
+    }
+
+    @Override
+    public Angsuran getAngsuranByKodeANS(String kodeans) {
+        PreparedStatement statement = null;
+        Angsuran a = new Angsuran();
+        ResultSet rs = null;
+        try {
+            statement = connection.prepareStatement("select * from angsuran where kodeangsuran=?");
+            statement.setString(1, kodeans);
+            rs = statement.executeQuery();
+            while (rs.next()) {
+                a.setIdAngsuran(rs.getInt("id"));
+                a.setKodeAngsuran(rs.getString("kodeangsuran"));
+                a.setKodeBP(rs.getString("kodebp"));
+                a.setPelanggan(DaoFactory.getPelangganDao().getPelangganByID(rs.getInt("idpelanggan")));
+                a.setPembayar(rs.getString("pembayar"));
+                a.setPenerima(rs.getString("penerima"));
+                a.setTanggalTerima(rs.getString("tanggal"));
+                a.setJumlah(rs.getInt("jumlah"));
+                a.setKeterangan(rs.getString("keterangan"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AngsuranDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return a;
     }
 
     @Override

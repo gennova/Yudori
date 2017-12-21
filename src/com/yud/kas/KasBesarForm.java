@@ -34,6 +34,10 @@ public class KasBesarForm extends javax.swing.JFrame {
         initComponents();
         loadform();
         setLocationRelativeTo(null);
+        DaoFactory.getKasBesarDao().truncateKasTemp();
+        clearfiled();
+        showKasAllTemp();
+        loadform();
     }
 
     private void loadform() {
@@ -608,6 +612,7 @@ public class KasBesarForm extends javax.swing.JFrame {
         jDesktopPane1.setVisible(true);
         DaoFactory.getKasDao().truncateKasTemp();
         loadform();
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -638,11 +643,16 @@ public class KasBesarForm extends javax.swing.JFrame {
         jDesktopPane1.setVisible(true);
         DaoFactory.getKasDao().truncateKasTemp();
         loadform();
+        DaoFactory.getKasBesarDao().truncateKasTemp();
+        clearfiled();
+        showKasAllTemp();
+        loadform();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         this.dispose();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
