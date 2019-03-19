@@ -44,11 +44,27 @@ public class KasBesarTabelModelTrx extends AbstractTableModel {
             case 3:
                 return listeds.get(rowIndex).getUraian();
             case 4:
-                return DaoFactory.getFormatRupiahIndonesiaInt(listeds.get(rowIndex).getDebet());
+                int value = listeds.get(rowIndex).getDebet();
+                if (value == 0) {
+                    return "-";
+                } else {
+                    return DaoFactory.getFormatRupiahIndonesiaInt(listeds.get(rowIndex).getDebet());
+                }
             case 5:
-                return DaoFactory.getFormatRupiahIndonesiaInt(listeds.get(rowIndex).getKredit());
+                int valuek = listeds.get(rowIndex).getKredit();
+                if (valuek == 0) {
+                    return "-";
+                } else {
+                    return DaoFactory.getFormatRupiahIndonesiaInt(listeds.get(rowIndex).getKredit());
+                }
             case 6:
-                return DaoFactory.getFormatRupiahIndonesiaInt(listeds.get(rowIndex).getSaldo());
+                int values = listeds.get(rowIndex).getSaldo();
+                if (values == 0) {
+                    return "-";
+                } else {
+                    return DaoFactory.getFormatRupiahIndonesiaInt(listeds.get(rowIndex).getSaldo());
+                }
+
             default:
                 return null;
 

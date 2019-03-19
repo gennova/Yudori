@@ -208,7 +208,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace pref="228" max="32767" attributes="0"/>
+                  <EmptySpace pref="146" max="32767" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
                   <Component id="idtext" min="-2" pref="30" max="-2" attributes="0"/>
@@ -235,7 +235,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="DAFTAR HARGA BARANG"/>
+            <Property name="text" type="java.lang.String" value="DAFTAR HARGA BARU BARANG"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="idtext">

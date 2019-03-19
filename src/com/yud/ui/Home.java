@@ -52,6 +52,7 @@ public class Home extends javax.swing.JFrame {
         jMenuItem23 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem42 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
@@ -220,6 +221,14 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jMenu2.add(jMenuItem1);
+
+        jMenuItem42.setText("Barang Paket");
+        jMenuItem42.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem42ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem42);
 
         jMenuItem8.setText("User");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
@@ -823,6 +832,12 @@ public class Home extends javax.swing.JFrame {
         lkobui.setVisible(true);
     }//GEN-LAST:event_jMenuItem40ActionPerformed
 
+    private void jMenuItem42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem42ActionPerformed
+        // TODO add your handling code here:
+        BarangPisahUI pisahUI = new BarangPisahUI();
+        pisahUI.setVisible(true);
+    }//GEN-LAST:event_jMenuItem42ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -924,6 +939,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem40;
     private javax.swing.JMenuItem jMenuItem41;
+    private javax.swing.JMenuItem jMenuItem42;
     private javax.swing.JMenuItem jMenuItem43;
     private javax.swing.JMenuItem jMenuItem44;
     private javax.swing.JMenuItem jMenuItem5;

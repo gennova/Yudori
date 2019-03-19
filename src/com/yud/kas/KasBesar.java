@@ -20,6 +20,7 @@ public class KasBesar {
     private int saldo;
     private int kredit;
     private int debet;
+    private int nominal;
     private String kodeakun;
     private String kasMasuk;
     private String kasKeluar;
@@ -118,6 +119,14 @@ public class KasBesar {
 
     public void setDebet(int debet) {
         this.debet = debet;
+    }
+
+    public void setNominal(int nominal) {
+        this.nominal = nominal;
+    }
+
+    public int getNominal() {
+        return nominal;
     }
 
 }

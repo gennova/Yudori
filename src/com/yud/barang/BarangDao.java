@@ -25,4 +25,8 @@ public interface BarangDao {
     public void deleteBarang(Barang barang);       
     
     public void updateHargaBarang(Barang barang);
+    
+    public void insertBarangPaket(Barang barang);
+    
+    public void updateNamaBarangPaket(Barang barang);
 }

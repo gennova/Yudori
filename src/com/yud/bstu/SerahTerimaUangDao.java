@@ -22,6 +22,14 @@ public interface SerahTerimaUangDao {
     public SerahTerimaUang getSerahTerimaByKode(String kode);
 
     public void insertBSTU(SerahTerimaUang stu);
+    
+    public void insertBSTUAngsuran(SerahTerimaUang stu);
+    
+    public void insertBSTUTunai(SerahTerimaUang stu);
+    
+    public void insertBSTUKomisi(SerahTerimaUang stu);
+    
+    public void insertBSTULainnya(SerahTerimaUang stu);
 
     public void updateBSTU(SerahTerimaUang stu);
 

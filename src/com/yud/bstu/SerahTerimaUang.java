@@ -31,6 +31,7 @@ public class SerahTerimaUang {
     private int debit;
     private int kredit;
     private int saldo;
+    private String kodeakun;
 
     public int getId() {
         return id;
@@ -153,6 +154,16 @@ public class SerahTerimaUang {
     public void setSaldo(int saldo) {
         this.saldo = saldo;
     }
+
+    public void setKodeakun(String kodeakun) {
+        this.kodeakun = kodeakun;
+    }
+
+    public String getKodeakun() {
+        return kodeakun;
+    }
+    
+    
     
     
 }

@@ -26,6 +26,7 @@ public class BarangDaoImplemen implements BarangDao {
     private static final String sqlGelBarangByID = "SELECT * FROM barang JOIN hargabarang ON barang.idbarang = hargabarang.idbarang WHERE CURDATE()<=tglberlakuakhir AND hargabarang.aktif='Y' and barang.idbarang=? ORDER BY barang.idbarang ASC";
     private static final String sqlGelBarangByName = "SELECT * FROM barang JOIN hargabarang ON barang.idbarang = hargabarang.idbarang WHERE CURDATE()<=tglberlakuakhir AND hargabarang.aktif='Y' and barang.namabarang=? ORDER BY barang.idbarang ASC";
     private static final String sqlInsertBarang = "call spInsertBarang(?,?,?,?,?,?,?,?,?,?,?,?)";
+    private static final String sqlInsertBarangPaket = "call spInsertBarangPaket(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String sqlDeleteBarang = "delete from barang where idbarang=?";
     private static final String sqlUpdateNamaBarang = "update barang set namabarang=? where idbarang=?";
     private static final String sqlUpdateHargaBarang = "call spInsertHargaBarang(?,?,?,?,?,?,?,?,?,?,?,?)";
@@ -182,7 +183,7 @@ public class BarangDaoImplemen implements BarangDao {
 
     @Override
     public void updateHargaBarang(Barang barang) {
-        PreparedStatement statement =null;
+        PreparedStatement statement = null;
         try {
             statement = connection.prepareStatement(sqlUpdateHargaBarang);
             statement.setString(1, barang.getNamabarang());
@@ -204,4 +205,44 @@ public class BarangDaoImplemen implements BarangDao {
             JOptionPane.showMessageDialog(null, "Data Harga Barang Gagal Diperbaharui.");
         }
     }
+
+    @Override
+    public void insertBarangPaket(Barang barang) {
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareCall(sqlInsertBarangPaket);
+            statement.setString(1, barang.getNamabarang());//1
+            statement.setInt(2, barang.getHargatunai());//2
+            statement.setInt(3, barang.getHargadrop());//3
+            statement.setInt(4, barang.getHargaindent());//4
+            statement.setInt(5, barang.getUM()); //5
+            statement.setInt(6, barang.getSisa()); //6
+            statement.setInt(7, barang.getHargapromosi()); //7
+            statement.setInt(8, barang.getSisa1());//8
+            statement.setInt(9, barang.getSisa2());//9
+            statement.setString(10, barang.getTglMulaiBerlaku());//10
+            statement.setString(11, barang.getTgAkhirBerlaku());//11
+            statement.setString(12, barang.getAktif());//12
+            //-----------------------------------------------------//
+            statement.setString(13, barang.getKode_satu());            
+            statement.setString(14, barang.getKode_dua());            
+            statement.setString(15, barang.getKode_tiga());            
+            statement.setString(16, barang.getKode_empat());
+            statement.setInt(17, barang.getQty_satu());
+            statement.setInt(18, barang.getQty_dua());
+            statement.setInt(19, barang.getQty_tiga());
+            statement.setInt(20, barang.getQty_empat());
+            statement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Barang Berhasil di Simpan");
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Barang Gagal di Simpan karena " + ex.getMessage());
+            Logger.getLogger(BarangDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void updateNamaBarangPaket(Barang barang) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

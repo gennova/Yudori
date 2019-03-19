@@ -25,6 +25,16 @@ public class Barang {
     private String tglMulaiBerlaku; //12
     private String tgAkhirBerlaku; //13
     private String aktif; //14
+    //---------------------------------
+    //barang paket
+    private String kode_satu;
+    private String kode_dua;
+    private String kode_tiga;
+    private String kode_empat;
+    private int qty_satu;
+    private int qty_dua;
+    private int qty_tiga;
+    private int qty_empat;
 
     public Barang() {
     }
@@ -140,5 +150,119 @@ public class Barang {
     public void setAktif(String aktif) {
         this.aktif = aktif;
     }
+
+    /**
+     * @return the kode_satu
+     */
+    public String getKode_satu() {
+        return kode_satu;
+    }
+
+    /**
+     * @param kode_satu the kode_satu to set
+     */
+    public void setKode_satu(String kode_satu) {
+        this.kode_satu = kode_satu;
+    }
+
+    /**
+     * @return the kode_dua
+     */
+    public String getKode_dua() {
+        return kode_dua;
+    }
+
+    /**
+     * @param kode_dua the kode_dua to set
+     */
+    public void setKode_dua(String kode_dua) {
+        this.kode_dua = kode_dua;
+    }
+
+    /**
+     * @return the kode_tiga
+     */
+    public String getKode_tiga() {
+        return kode_tiga;
+    }
+
+    /**
+     * @param kode_tiga the kode_tiga to set
+     */
+    public void setKode_tiga(String kode_tiga) {
+        this.kode_tiga = kode_tiga;
+    }
+
+    /**
+     * @return the kode_empat
+     */
+    public String getKode_empat() {
+        return kode_empat;
+    }
+
+    /**
+     * @param kode_empat the kode_empat to set
+     */
+    public void setKode_empat(String kode_empat) {
+        this.kode_empat = kode_empat;
+    }
+
+    /**
+     * @return the qty_satu
+     */
+    public int getQty_satu() {
+        return qty_satu;
+    }
+
+    /**
+     * @param qty_satu the qty_satu to set
+     */
+    public void setQty_satu(int qty_satu) {
+        this.qty_satu = qty_satu;
+    }
+
+    /**
+     * @return the qty_dua
+     */
+    public int getQty_dua() {
+        return qty_dua;
+    }
+
+    /**
+     * @param qty_dua the qty_dua to set
+     */
+    public void setQty_dua(int qty_dua) {
+        this.qty_dua = qty_dua;
+    }
+
+    /**
+     * @return the qty_tiga
+     */
+    public int getQty_tiga() {
+        return qty_tiga;
+    }
+
+    /**
+     * @param qty_tiga the qty_tiga to set
+     */
+    public void setQty_tiga(int qty_tiga) {
+        this.qty_tiga = qty_tiga;
+    }
+
+    /**
+     * @return the qty_empat
+     */
+    public int getQty_empat() {
+        return qty_empat;
+    }
+
+    /**
+     * @param qty_empat the qty_empat to set
+     */
+    public void setQty_empat(int qty_empat) {
+        this.qty_empat = qty_empat;
+    }
+    
+    
 
 }

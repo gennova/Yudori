@@ -4,6 +4,6 @@
 <comment>host settings</comment>
 <entry key="db">yudori</entry>
 <entry key="password"></entry>
-<entry key="host">localhost</entry>
+<entry key="host"></entry>
 <entry key="username">root</entry>
 </properties>

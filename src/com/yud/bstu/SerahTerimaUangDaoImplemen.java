@@ -28,7 +28,7 @@ public class SerahTerimaUangDaoImplemen implements SerahTerimaUangDao {
     private final static String sqlGetAllTempBSTU = "select * from tempbstu";
     private final static String sqlGetBSTUByID = "select * from bstu where id=?";
     private final static String sqlGetBSTUByKode = "select * from bstu where kodebstu=?";
-    private final static String sqlInsertBSTU = "call spInsertBSTU(?,?,?,?,?,?,?)";
+    private final static String sqlInsertBSTU = "call spInsertBSTU(?,?,?,?,?,?,?,?)";
     private final static String sqlDeleteBSTU = "delete from bstu where id=?";
     private final static String sqlTruncateBSTU = "truncate tempbstu";
     private final static String sqlInsertTempBSTU = "insert into tempbstu (nama,uraian,keterangan,jumlah,kodebstu) values (?,?,?,?,?)";
@@ -131,10 +131,45 @@ public class SerahTerimaUangDaoImplemen implements SerahTerimaUangDao {
             statement.setString(5, stu.getJenisbstu());
             statement.setString(6, stu.getDiserahkan());
             statement.setString(7, stu.getTanggal());
+            statement.setString(8, stu.getKodeakun());
             statement.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(SerahTerimaUangDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @Override
+    public void insertBSTUAngsuran(SerahTerimaUang stu) {
+        PreparedStatement statement = null;
+        try {
+            statement = connection.prepareStatement(sqlInsertBSTU);
+            statement.setString(1, stu.getKodeBSTU());
+            statement.setString(2, stu.getNama());
+            statement.setInt(3, stu.getJumlah());
+            statement.setString(4, stu.getStatus());
+            statement.setString(5, stu.getJenisbstu());
+            statement.setString(6, stu.getDiserahkan());
+            statement.setString(7, stu.getTanggal());
+            statement.setString(8, stu.getKodeakun());
+            statement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(SerahTerimaUangDaoImplemen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @Override
+    public void insertBSTUKomisi(SerahTerimaUang stu) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void insertBSTULainnya(SerahTerimaUang stu) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void insertBSTUTunai(SerahTerimaUang stu) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

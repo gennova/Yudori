@@ -550,6 +550,7 @@ public class BSTUang extends javax.swing.JFrame {
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
             String tglnya = df.format(tglBSTU.getDate());
             String statuscek = "";
+            String kodeakun = "";
             if (cekMasuk.isSelected() == true) {
                 statuscek = "Masuk";
             } else if (cekKeluar.isSelected() == true) {
@@ -565,6 +566,24 @@ public class BSTUang extends javax.swing.JFrame {
             } else if (radLainnya.isSelected() == true) {
                 jeniskeluar = "Lainnya";
             }
+
+            if (statuscek.equals("Masuk") && jeniskeluar.equals("Angsuran")) {
+                kodeakun = "1115";
+            } else if (statuscek.equals("Masuk") && jeniskeluar.equals("Komisi")) {
+                kodeakun = "1116";
+            } else if (statuscek.equals("Masuk") && jeniskeluar.equals("Tunai")) {
+                kodeakun = "1117";
+            } else if (statuscek.equals("Masuk") && jeniskeluar.equals("Lainnya")) {
+                kodeakun = "1118";
+            } else if (statuscek.equals("Keluar") && jeniskeluar.equals("Angsuran")) {
+                kodeakun = "1119";
+            } else if (statuscek.equals("Keluar") && jeniskeluar.equals("Komisi")) {
+                kodeakun = "1120";
+            } else if (statuscek.equals("Keluar") && jeniskeluar.equals("Tunai")) {
+                kodeakun = "1121";
+            } else if (statuscek.equals("Keluar") && jeniskeluar.equals("Lainnya")) {
+                kodeakun = "1122";
+            }
             SerahTerimaUang stu = new SerahTerimaUang();
             stu.setKodeBSTU(kodefaktur);
             stu.setNama(namapenerima);//penerima
@@ -574,6 +593,7 @@ public class BSTUang extends javax.swing.JFrame {
             stu.setJumlah(Integer.parseInt(jumlah));
             stu.setTanggal(tglnya);
             stu.setUraian(uraian);
+            stu.setKodeakun(kodeakun);
             DaoFactory.getSerahTerimaUangDao().insertBSTU(stu);
             DaoFactory.insertUrutBSTU(txtNoFaktur.getText());
             JOptionPane.showMessageDialog(null, "Data Berhasil Disimpan");
@@ -592,6 +612,7 @@ public class BSTUang extends javax.swing.JFrame {
 
     private void txtJumlahKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJumlahKeyPressed
         // TODO add your handling code here:
+        /*
         String nama = txtnamadetil.getText();
         String uraian = txtUraian.getText();
         String keterangan = txtKeterangan.getText();
@@ -608,6 +629,7 @@ public class BSTUang extends javax.swing.JFrame {
         DaoFactory.getSerahTerimaUangDao().InsertTempBSTU(stu);
         showBSTUTemp();
         txtTotalnya.setText(String.valueOf(DaoFactory.getSerahTerimaUangDao().getSUMTemp(kode)));   
+         */
     }//GEN-LAST:event_txtJumlahKeyPressed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -672,7 +694,7 @@ public class BSTUang extends javax.swing.JFrame {
 
     private void filterText2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_filterText2MouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_filterText2MouseClicked
 
     private void filterText2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filterText2KeyReleased
@@ -737,6 +759,22 @@ public class BSTUang extends javax.swing.JFrame {
 
     private void txtJumlahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtJumlahActionPerformed
         // TODO add your handling code here:
+        String nama = txtnamadetil.getText();
+        String uraian = txtUraian.getText();
+        String keterangan = txtKeterangan.getText();
+        String jumlah = txtJumlah.getText();
+        String kode = txtNoFaktur.getText();
+        int jumlahnya = Integer.parseInt(jumlah);
+        SerahTerimaUang stu = new SerahTerimaUang();
+        stu.setNama(nama);
+        stu.setUraian(uraian);
+        stu.setKeterangan(keterangan);
+        stu.setJumlah(jumlahnya);
+        stu.setKodeBSTU(kode);
+        clearfielddetil();
+        DaoFactory.getSerahTerimaUangDao().InsertTempBSTU(stu);
+        showBSTUTemp();
+        txtTotalnya.setText(String.valueOf(DaoFactory.getSerahTerimaUangDao().getSUMTemp(kode)));
     }//GEN-LAST:event_txtJumlahActionPerformed
 
     /**
